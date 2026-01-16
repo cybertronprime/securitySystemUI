@@ -4677,6 +4677,1710 @@
       `;
     }
 
+    // ============================================
+    // CONTROL ROOM APP SCREENS (24)
+    // ============================================
+
+    // Control Room Splash Screen
+    function renderCrSplash() {
+      return `
+        <div class="splash-screen">
+          <div class="splash-logo">🏛️</div>
+          <h1 class="splash-title">PARLIAMENT HOUSE</h1>
+          <p class="splash-subtitle">SECURITY CONTROL ROOM</p>
+          <div style="width: 60px; height: 60px; border: 3px solid rgba(255,255,255,0.3); border-top-color: var(--secondary); border-radius: 50%; animation: spin 1s linear infinite; margin: 24px 0;"></div>
+          <p style="font-size: 12px; opacity: 0.7;">Initializing secure connection...</p>
+          <div class="splash-footer">Command & Control System v3.0</div>
+        </div>
+        <style>
+          @keyframes spin { to { transform: rotate(360deg); } }
+        </style>
+      `;
+    }
+
+    // Control Room Login Screen
+    function renderCrLogin() {
+      return `
+        <div class="screen" style="background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 24px;">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <span style="font-size: 48px;">🏛️</span>
+              <h2 style="color: white; font-size: 18px; margin-top: 12px;">Control Room Access</h2>
+              <p style="color: rgba(255,255,255,0.7); font-size: 12px;">Authorized Personnel Only</p>
+            </div>
+            <div class="card" style="margin-bottom: 16px;">
+              <div class="input-group">
+                <label class="input-label">👤 Admin ID</label>
+                <input type="text" class="input" placeholder="Enter Admin ID" value="ADMIN-001">
+              </div>
+              <div class="input-group">
+                <label class="input-label">🔐 Password</label>
+                <input type="password" class="input" placeholder="Enter Password" value="••••••••">
+              </div>
+              <div class="input-group" style="margin-bottom: 0;">
+                <label class="input-label">🏢 Control Station</label>
+                <select class="input">
+                  <option>Main Control Room - Building A</option>
+                  <option>Secondary Control - Building B</option>
+                  <option>Emergency Operations Center</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-lg btn-block">🔓 Secure Login</button>
+            <p style="text-align: center; color: rgba(255,255,255,0.6); font-size: 11px; margin-top: 16px;">🔒 256-bit encrypted connection</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Dashboard Screen
+    function renderCrDashboard() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div style="background: var(--primary); color: white; padding: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <p style="font-size: 12px; opacity: 0.8;">Control Room</p>
+                <h2 style="font-size: 18px; font-weight: 600;">Main Dashboard</h2>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <span style="font-size: 20px;">🔔</span>
+                <span style="font-size: 20px;">⚙️</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Live Stats -->
+            <div class="grid-4" style="gap: 8px; margin-bottom: 16px;">
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--success);">156</p>
+                <p style="font-size: 9px; color: var(--text-secondary);">Inside</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--primary);">24</p>
+                <p style="font-size: 9px; color: var(--text-secondary);">Expected</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--warning);">3</p>
+                <p style="font-size: 9px; color: var(--text-secondary);">Pending</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--danger);">1</p>
+                <p style="font-size: 9px; color: var(--text-secondary);">Alerts</p>
+              </div>
+            </div>
+            <!-- Checkpoint Status -->
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">🚧 Checkpoint Status</h4>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; background: var(--bg-light); border-radius: 6px;">
+                  <span style="font-weight: 500; font-size: 13px;">Gate 1 - Main</span>
+                  <span class="status-chip status-chip-success">● Active</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; background: var(--bg-light); border-radius: 6px;">
+                  <span style="font-weight: 500; font-size: 13px;">Gate 2 - VIP</span>
+                  <span class="status-chip status-chip-success">● Active</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px; background: var(--bg-light); border-radius: 6px;">
+                  <span style="font-weight: 500; font-size: 13px;">Gate 3 - Service</span>
+                  <span class="status-chip status-chip-warning">● Limited</span>
+                </div>
+              </div>
+            </div>
+            <!-- Active Alerts -->
+            <div class="card" style="border-left: 4px solid var(--danger);">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">🚨 Active Alert</h4>
+              <p style="font-size: 12px; color: var(--text-secondary);">Unauthorized entry attempt at Gate 1</p>
+              <p style="font-size: 11px; color: var(--danger); margin-top: 4px;">10:15 AM • Requires attention</p>
+            </div>
+            <!-- Quick Actions -->
+            <div class="grid-2" style="gap: 8px;">
+              <button class="btn btn-outline btn-sm">📋 Approvals (3)</button>
+              <button class="btn btn-outline btn-sm">📹 Surveillance</button>
+              <button class="btn btn-outline btn-sm">📊 Reports</button>
+              <button class="btn btn-danger btn-sm">🚨 Emergency</button>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <a class="bottom-nav-item active"><span class="icon">🏠</span>Dashboard</a>
+            <a class="bottom-nav-item"><span class="icon">📹</span>Monitor</a>
+            <a class="bottom-nav-item"><span class="icon">📋</span>Approvals</a>
+            <a class="bottom-nav-item"><span class="icon">⚙️</span>More</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Monitoring Screen
+    function renderCrMonitoring() {
+      return `
+        <div class="screen" style="background: var(--bg-dark);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Live Monitoring</span>
+            <span style="font-size: 18px;">👁️</span>
+          </div>
+          <div style="padding: 12px; flex: 1; overflow-y: auto;">
+            <!-- Status Overview -->
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+              <div style="flex: 1; background: rgba(56,161,105,0.2); padding: 8px; border-radius: 6px; text-align: center;">
+                <p style="font-size: 16px; font-weight: 700; color: var(--success);">12</p>
+                <p style="font-size: 9px; color: var(--text-muted);">Cameras Online</p>
+              </div>
+              <div style="flex: 1; background: rgba(229,62,62,0.2); padding: 8px; border-radius: 6px; text-align: center;">
+                <p style="font-size: 16px; font-weight: 700; color: var(--danger);">1</p>
+                <p style="font-size: 9px; color: var(--text-muted);">Offline</p>
+              </div>
+              <div style="flex: 1; background: rgba(214,158,46,0.2); padding: 8px; border-radius: 6px; text-align: center;">
+                <p style="font-size: 16px; font-weight: 700; color: var(--warning);">2</p>
+                <p style="font-size: 9px; color: var(--text-muted);">Alerts</p>
+              </div>
+            </div>
+            <!-- Camera Grid -->
+            <div class="grid-2" style="gap: 8px;">
+              <div style="background: #1a1a1a; border-radius: 8px; overflow: hidden;">
+                <div style="height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+                  <span style="font-size: 32px; opacity: 0.5;">📹</span>
+                  <div style="position: absolute; top: 4px; left: 4px; background: var(--success); width: 6px; height: 6px; border-radius: 50%;"></div>
+                </div>
+                <div style="padding: 6px; background: rgba(0,0,0,0.5);"><p style="font-size: 10px; color: white;">Gate 1 - Entry</p></div>
+              </div>
+              <div style="background: #1a1a1a; border-radius: 8px; overflow: hidden;">
+                <div style="height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+                  <span style="font-size: 32px; opacity: 0.5;">📹</span>
+                  <div style="position: absolute; top: 4px; left: 4px; background: var(--success); width: 6px; height: 6px; border-radius: 50%;"></div>
+                </div>
+                <div style="padding: 6px; background: rgba(0,0,0,0.5);"><p style="font-size: 10px; color: white;">Gate 2 - VIP</p></div>
+              </div>
+              <div style="background: #1a1a1a; border-radius: 8px; overflow: hidden;">
+                <div style="height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+                  <span style="font-size: 32px; opacity: 0.5;">📹</span>
+                  <div style="position: absolute; top: 4px; left: 4px; background: var(--danger); width: 6px; height: 6px; border-radius: 50%;"></div>
+                </div>
+                <div style="padding: 6px; background: rgba(0,0,0,0.5);"><p style="font-size: 10px; color: var(--danger);">Parking A - Offline</p></div>
+              </div>
+              <div style="background: #1a1a1a; border-radius: 8px; overflow: hidden;">
+                <div style="height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+                  <span style="font-size: 32px; opacity: 0.5;">📹</span>
+                  <div style="position: absolute; top: 4px; left: 4px; background: var(--success); width: 6px; height: 6px; border-radius: 50%;"></div>
+                </div>
+                <div style="padding: 6px; background: rgba(0,0,0,0.5);"><p style="font-size: 10px; color: white;">Building A - Lobby</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-nav" style="background: var(--bg-dark); border-color: rgba(255,255,255,0.1);">
+            <a class="bottom-nav-item"><span class="icon">🏠</span>Dashboard</a>
+            <a class="bottom-nav-item active"><span class="icon">📹</span>Monitor</a>
+            <a class="bottom-nav-item"><span class="icon">📋</span>Approvals</a>
+            <a class="bottom-nav-item"><span class="icon">⚙️</span>More</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Surveillance Screen
+    function renderCrSurveillance() {
+      return `
+        <div class="screen" style="background: var(--bg-dark);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">AI Surveillance</span>
+            <span style="font-size: 18px;">🤖</span>
+          </div>
+          <div style="padding: 12px; flex: 1; overflow-y: auto;">
+            <!-- AI Status -->
+            <div style="background: rgba(56,161,105,0.2); padding: 12px; border-radius: 8px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 24px;">🤖</span>
+              <div>
+                <p style="font-weight: 600; color: var(--success);">AI System Active</p>
+                <p style="font-size: 11px; color: var(--text-muted);">Facial recognition • Anomaly detection • Crowd analysis</p>
+              </div>
+            </div>
+            <!-- Main Camera View -->
+            <div style="background: #1a1a1a; border-radius: 8px; overflow: hidden; margin-bottom: 12px;">
+              <div style="height: 160px; display: flex; align-items: center; justify-content: center; position: relative;">
+                <span style="font-size: 48px; opacity: 0.5;">📹</span>
+                <div style="position: absolute; top: 8px; left: 8px; background: var(--danger); color: white; padding: 2px 8px; border-radius: 4px; font-size: 10px;">● REC</div>
+                <div style="position: absolute; bottom: 8px; left: 8px; right: 8px;">
+                  <div style="display: flex; gap: 4px;">
+                    <span style="background: rgba(56,161,105,0.8); color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px;">👤 Face Detected</span>
+                    <span style="background: rgba(49,130,206,0.8); color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px;">🚗 Vehicle Tracked</span>
+                  </div>
+                </div>
+              </div>
+              <div style="padding: 8px; background: rgba(0,0,0,0.5);"><p style="font-size: 11px; color: white;">Gate 1 - Main Entry • AI Enhanced</p></div>
+            </div>
+            <!-- AI Detections -->
+            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+              <h4 style="font-size: 12px; font-weight: 600; color: white; margin-bottom: 8px;">🔍 Recent AI Detections</h4>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="display: flex; align-items: center; gap: 8px; padding: 6px; background: rgba(255,255,255,0.05); border-radius: 4px;">
+                  <span>👤</span>
+                  <div style="flex: 1;"><p style="font-size: 11px; color: white;">Face matched: Hon. Rajesh Kumar</p></div>
+                  <span style="font-size: 10px; color: var(--text-muted);">10:32</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; padding: 6px; background: rgba(255,255,255,0.05); border-radius: 4px;">
+                  <span>🚗</span>
+                  <div style="flex: 1;"><p style="font-size: 11px; color: white;">Vehicle: DL 01 AB 1234</p></div>
+                  <span style="font-size: 10px; color: var(--text-muted);">10:30</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; padding: 6px; background: rgba(229,62,62,0.2); border-radius: 4px;">
+                  <span>⚠️</span>
+                  <div style="flex: 1;"><p style="font-size: 11px; color: var(--danger);">Unknown person detected</p></div>
+                  <span style="font-size: 10px; color: var(--text-muted);">10:15</span>
+                </div>
+              </div>
+            </div>
+            <!-- Tracking Map -->
+            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 12px;">
+              <h4 style="font-size: 12px; font-weight: 600; color: white; margin-bottom: 8px;">📍 Live Tracking Map</h4>
+              <div style="height: 100px; background: rgba(0,0,0,0.3); border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 32px; opacity: 0.5;">🗺️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Approvals Screen
+    function renderCrApprovals() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Pending Approvals</span>
+            <span class="badge">3</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Filter Tabs -->
+            <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+              <span class="status-chip status-chip-primary">All (3)</span>
+              <span class="status-chip status-chip-neutral">VIP (1)</span>
+              <span class="status-chip status-chip-neutral">Visitor (2)</span>
+            </div>
+            <!-- Pending Items -->
+            <div class="card" style="border-left: 4px solid var(--warning);">
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <div class="avatar" style="background: var(--secondary);">MG</div>
+                <div style="flex: 1;">
+                  <p style="font-weight: 600;">Hon. Meera Gupta</p>
+                  <p style="font-size: 12px; color: var(--text-secondary);">VIP Visit Request</p>
+                  <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Today, 3:00 PM • Budget Session</p>
+                </div>
+                <span class="status-chip status-chip-warning">Pending</span>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 12px;">
+                <button class="btn btn-success btn-sm" style="flex: 1;">✓ Approve</button>
+                <button class="btn btn-danger btn-sm" style="flex: 1;">✗ Reject</button>
+              </div>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--warning);">
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <div class="avatar" style="background: var(--info);">PS</div>
+                <div style="flex: 1;">
+                  <p style="font-weight: 600;">Priya Singh</p>
+                  <p style="font-size: 12px; color: var(--text-secondary);">Visitor Pass Request</p>
+                  <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Tomorrow, 10:00 AM • Meeting</p>
+                </div>
+                <span class="status-chip status-chip-warning">Pending</span>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 12px;">
+                <button class="btn btn-success btn-sm" style="flex: 1;">✓ Approve</button>
+                <button class="btn btn-danger btn-sm" style="flex: 1;">✗ Reject</button>
+              </div>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--warning);">
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <div class="avatar" style="background: var(--primary);">AK</div>
+                <div style="flex: 1;">
+                  <p style="font-weight: 600;">Arun Kumar</p>
+                  <p style="font-size: 12px; color: var(--text-secondary);">Vehicle Registration</p>
+                  <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">New vehicle: DL 05 CD 5678</p>
+                </div>
+                <span class="status-chip status-chip-warning">Pending</span>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 12px;">
+                <button class="btn btn-success btn-sm" style="flex: 1;">✓ Approve</button>
+                <button class="btn btn-danger btn-sm" style="flex: 1;">✗ Reject</button>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <a class="bottom-nav-item"><span class="icon">🏠</span>Dashboard</a>
+            <a class="bottom-nav-item"><span class="icon">📹</span>Monitor</a>
+            <a class="bottom-nav-item active"><span class="icon">📋</span>Approvals</a>
+            <a class="bottom-nav-item"><span class="icon">⚙️</span>More</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Approval Detail Screen
+    function renderCrApprovalDetail() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Approval Detail</span>
+            <span></span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Request Info -->
+            <div class="card" style="text-align: center;">
+              <div class="avatar avatar-xl" style="background: var(--secondary); margin: 0 auto 12px;">MG</div>
+              <h3 style="font-size: 18px; font-weight: 600;">Hon. Meera Gupta</h3>
+              <p style="font-size: 12px; color: var(--text-secondary);">Member of Parliament</p>
+              <span class="status-chip status-chip-warning" style="margin-top: 8px;">⏳ Pending Approval</span>
+            </div>
+            <!-- Visit Details -->
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">📅 Visit Details</h4>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span style="color: var(--text-secondary);">Date</span><span style="font-weight: 500;">16 Jan 2026</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span style="color: var(--text-secondary);">Time</span><span style="font-weight: 500;">3:00 PM - 6:00 PM</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span style="color: var(--text-secondary);">Purpose</span><span style="font-weight: 500;">Budget Session 2026</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span style="color: var(--text-secondary);">Entry Gate</span><span style="font-weight: 500;">Gate 2 - VIP</span></div>
+            </div>
+            <!-- Vehicle -->
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">🚗 Vehicle</h4>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span style="color: var(--text-secondary);">Registration</span><span style="font-weight: 500; font-family: monospace;">DL 02 MG 9999</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span style="color: var(--text-secondary);">Vehicle</span><span style="font-weight: 500;">BMW 5 Series • Black</span></div>
+            </div>
+            <!-- Requested By -->
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">👤 Requested By</h4>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="avatar avatar-sm" style="background: var(--primary);">SK</div>
+                <div>
+                  <p style="font-weight: 500; font-size: 13px;">Sunil Kumar (PA)</p>
+                  <p style="font-size: 11px; color: var(--text-secondary);">Submitted: 15 Jan, 4:30 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 16px; background: white; border-top: 1px solid var(--border);">
+            <div class="grid-2" style="gap: 12px;">
+              <button class="btn btn-danger btn-lg">✗ Reject</button>
+              <button class="btn btn-success btn-lg">✓ Approve</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Schedule Screen
+    function renderCrSchedule() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Today's Schedule</span>
+            <span style="font-size: 18px;">📅</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Date Header -->
+            <div style="text-align: center; margin-bottom: 16px;">
+              <p style="font-size: 12px; color: var(--text-secondary);">Friday</p>
+              <p style="font-size: 20px; font-weight: 700;">16 January 2026</p>
+            </div>
+            <!-- Stats -->
+            <div class="grid-3" style="gap: 8px; margin-bottom: 16px;">
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--primary);">24</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Total</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--success);">8</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Arrived</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--warning);">16</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Expected</p>
+              </div>
+            </div>
+            <!-- Timeline -->
+            <div class="card" style="padding: 0;">
+              <div style="display: flex; border-bottom: 1px solid var(--border);">
+                <div style="width: 60px; padding: 12px; text-align: center; border-right: 1px solid var(--border);">
+                  <p style="font-size: 14px; font-weight: 600;">10:30</p>
+                  <p style="font-size: 10px; color: var(--text-secondary);">AM</p>
+                </div>
+                <div style="flex: 1; padding: 12px; display: flex; align-items: center; gap: 8px;">
+                  <div class="avatar avatar-sm" style="background: var(--secondary);">RK</div>
+                  <div>
+                    <p style="font-weight: 500; font-size: 13px;">Hon. Rajesh Kumar</p>
+                    <p style="font-size: 10px; color: var(--success);">✓ Arrived</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; border-bottom: 1px solid var(--border);">
+                <div style="width: 60px; padding: 12px; text-align: center; border-right: 1px solid var(--border);">
+                  <p style="font-size: 14px; font-weight: 600;">11:00</p>
+                  <p style="font-size: 10px; color: var(--text-secondary);">AM</p>
+                </div>
+                <div style="flex: 1; padding: 12px; display: flex; align-items: center; gap: 8px;">
+                  <div class="avatar avatar-sm" style="background: var(--info);">PS</div>
+                  <div>
+                    <p style="font-weight: 500; font-size: 13px;">Priya Singh</p>
+                    <p style="font-size: 10px; color: var(--warning);">⏳ Expected</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; border-bottom: 1px solid var(--border);">
+                <div style="width: 60px; padding: 12px; text-align: center; border-right: 1px solid var(--border);">
+                  <p style="font-size: 14px; font-weight: 600;">3:00</p>
+                  <p style="font-size: 10px; color: var(--text-secondary);">PM</p>
+                </div>
+                <div style="flex: 1; padding: 12px; display: flex; align-items: center; gap: 8px;">
+                  <div class="avatar avatar-sm" style="background: var(--secondary);">MG</div>
+                  <div>
+                    <p style="font-weight: 500; font-size: 13px;">Hon. Meera Gupta</p>
+                    <p style="font-size: 10px; color: var(--warning);">⏳ Expected</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex;">
+                <div style="width: 60px; padding: 12px; text-align: center; border-right: 1px solid var(--border);">
+                  <p style="font-size: 14px; font-weight: 600;">4:30</p>
+                  <p style="font-size: 10px; color: var(--text-secondary);">PM</p>
+                </div>
+                <div style="flex: 1; padding: 12px; display: flex; align-items: center; gap: 8px;">
+                  <div class="avatar avatar-sm" style="background: var(--primary);">AK</div>
+                  <div>
+                    <p style="font-weight: 500; font-size: 13px;">Arun Kumar + 5</p>
+                    <p style="font-size: 10px; color: var(--warning);">⏳ Group Visit</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Tracking Screen
+    function renderCrTracking() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Visitor Tracking</span>
+            <span style="font-size: 18px;">📍</span>
+          </div>
+          <div style="flex: 1; overflow-y: auto;">
+            <!-- Map Area -->
+            <div style="height: 200px; background: var(--bg-dark); display: flex; align-items: center; justify-content: center; position: relative;">
+              <span style="font-size: 48px; opacity: 0.3;">🗺️</span>
+              <div style="position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px;">Parliament Complex Map</div>
+              <div style="position: absolute; top: 50px; left: 80px; width: 24px; height: 24px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; border: 2px solid white;">👤</div>
+              <div style="position: absolute; top: 100px; left: 150px; width: 24px; height: 24px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; border: 2px solid white;">👤</div>
+            </div>
+            <div style="padding: 16px;">
+              <!-- Active Visitors -->
+              <div class="section-header" style="padding: 0 0 8px 0;">
+                <span class="section-title">Currently Inside (156)</span>
+              </div>
+              <div class="card" style="padding: 0;">
+                <div class="list-item">
+                  <div class="avatar avatar-sm" style="background: var(--secondary);">RK</div>
+                  <div class="list-item-content">
+                    <p class="list-item-title">Hon. Rajesh Kumar</p>
+                    <p class="list-item-subtitle">Building A - Floor 2</p>
+                  </div>
+                  <span style="font-size: 10px; color: var(--success);">● Active</span>
+                </div>
+                <div class="list-item">
+                  <div class="avatar avatar-sm" style="background: var(--info);">PS</div>
+                  <div class="list-item-content">
+                    <p class="list-item-title">Priya Singh</p>
+                    <p class="list-item-subtitle">Building A - Lobby</p>
+                  </div>
+                  <span style="font-size: 10px; color: var(--success);">● Active</span>
+                </div>
+                <div class="list-item">
+                  <div class="avatar avatar-sm" style="background: var(--primary);">AK</div>
+                  <div class="list-item-content">
+                    <p class="list-item-title">Arun Kumar</p>
+                    <p class="list-item-subtitle">Parking Zone A</p>
+                  </div>
+                  <span style="font-size: 10px; color: var(--warning);">● Moving</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Incidents Screen
+    function renderCrIncidents() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Incident Management</span>
+            <span style="font-size: 18px;">⚠️</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Stats -->
+            <div class="grid-3" style="gap: 8px; margin-bottom: 16px;">
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--danger);">1</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Active</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--warning);">2</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Pending</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--success);">15</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Resolved</p>
+              </div>
+            </div>
+            <!-- Active Incident -->
+            <div class="card" style="border-left: 4px solid var(--danger);">
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="font-size: 24px;">🚨</span>
+                <div style="flex: 1;">
+                  <p style="font-weight: 600;">Security Breach Attempt</p>
+                  <p style="font-size: 12px; color: var(--text-secondary);">Gate 1 - Main Entry</p>
+                  <p style="font-size: 11px; color: var(--danger); margin-top: 4px;">10:15 AM • High Priority</p>
+                </div>
+                <span class="status-chip status-chip-danger">Active</span>
+              </div>
+              <button class="btn btn-danger btn-sm btn-block" style="margin-top: 12px;">View Details</button>
+            </div>
+            <!-- Pending -->
+            <div class="section-header" style="padding: 16px 0 8px 0;">
+              <span class="section-title">Pending Review</span>
+            </div>
+            <div class="card">
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="font-size: 20px;">⚠️</span>
+                <div style="flex: 1;">
+                  <p style="font-weight: 500; font-size: 13px;">Equipment Malfunction</p>
+                  <p style="font-size: 11px; color: var(--text-secondary);">Gate 3 barrier • Yesterday</p>
+                </div>
+                <span class="status-chip status-chip-warning">Pending</span>
+              </div>
+            </div>
+            <div class="card">
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="font-size: 20px;">📋</span>
+                <div style="flex: 1;">
+                  <p style="font-weight: 500; font-size: 13px;">Visitor Complaint</p>
+                  <p style="font-size: 11px; color: var(--text-secondary);">Long wait time • Yesterday</p>
+                </div>
+                <span class="status-chip status-chip-warning">Pending</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 16px; background: white; border-top: 1px solid var(--border);">
+            <button class="btn btn-primary btn-lg btn-block">+ Report New Incident</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room New Incident Screen
+    function renderCrNewIncident() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">New Incident</span>
+            <span></span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Incident Type -->
+            <div class="input-group">
+              <label class="input-label">⚠️ Incident Type</label>
+              <select class="input">
+                <option>Security Breach</option>
+                <option>Equipment Failure</option>
+                <option>Medical Emergency</option>
+                <option>Fire/Safety</option>
+                <option>Visitor Complaint</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <!-- Priority -->
+            <div class="input-group">
+              <label class="input-label">🎚️ Priority Level</label>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-sm" style="flex: 1; background: var(--bg-light); color: var(--text-secondary); border: 1px solid var(--border);">Low</button>
+                <button class="btn btn-sm" style="flex: 1; background: var(--warning); color: white;">Medium</button>
+                <button class="btn btn-sm" style="flex: 1; background: var(--bg-light); color: var(--text-secondary); border: 1px solid var(--border);">High</button>
+              </div>
+            </div>
+            <!-- Location -->
+            <div class="input-group">
+              <label class="input-label">📍 Location</label>
+              <select class="input">
+                <option>Gate 1 - Main Entry</option>
+                <option>Gate 2 - VIP Entry</option>
+                <option>Gate 3 - Service Entry</option>
+                <option>Building A</option>
+                <option>Building B</option>
+                <option>Parking Zone A</option>
+                <option>Parking Zone B</option>
+              </select>
+            </div>
+            <!-- Description -->
+            <div class="input-group">
+              <label class="input-label">📝 Description</label>
+              <textarea class="input" rows="4" placeholder="Describe the incident in detail..." style="resize: none;"></textarea>
+            </div>
+            <!-- Attachments -->
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">📎 Attachments</h4>
+              <div class="grid-2" style="gap: 8px;">
+                <button class="btn btn-outline btn-sm">📷 Photo</button>
+                <button class="btn btn-outline btn-sm">🎥 Video</button>
+              </div>
+            </div>
+            <!-- Assign To -->
+            <div class="input-group">
+              <label class="input-label">👤 Assign To</label>
+              <select class="input">
+                <option>Auto-assign based on location</option>
+                <option>Ramesh Singh (Gate 1)</option>
+                <option>Arun Kumar (Gate 2)</option>
+                <option>Supervisor on Duty</option>
+              </select>
+            </div>
+          </div>
+          <div style="padding: 16px; background: white; border-top: 1px solid var(--border);">
+            <button class="btn btn-danger btn-lg btn-block">🚨 Submit Incident Report</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Emergency Screen
+    function renderCrEmergency() {
+      return `
+        <div class="screen" style="background: var(--danger);">
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; color: white;">
+            <div style="width: 120px; height: 120px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+              <span style="font-size: 64px;">🚨</span>
+            </div>
+            <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">EMERGENCY PANEL</h1>
+            <p style="font-size: 14px; opacity: 0.9; margin-bottom: 24px;">Control Room Emergency Actions</p>
+            <!-- Emergency Actions -->
+            <div style="width: 100%; display: flex; flex-direction: column; gap: 12px;">
+              <button class="btn btn-lg btn-block" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">
+                🔒 LOCKDOWN ALL GATES
+              </button>
+              <button class="btn btn-lg btn-block" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">
+                📢 BROADCAST ALERT
+              </button>
+              <button class="btn btn-lg btn-block" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">
+                🚒 CALL EMERGENCY SERVICES
+              </button>
+              <button class="btn btn-lg btn-block" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">
+                🏃 EVACUATION PROTOCOL
+              </button>
+            </div>
+          </div>
+          <div style="padding: 16px; background: rgba(0,0,0,0.2);">
+            <button class="btn btn-lg btn-block" style="background: white; color: var(--danger);">← Return to Dashboard</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Parking Screen
+    function renderCrParking() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Parking Overview</span>
+            <span style="font-size: 18px;">🅿️</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Overall Stats -->
+            <div class="grid-3" style="gap: 8px; margin-bottom: 16px;">
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--success);">18</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Available</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--danger);">72</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Occupied</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--warning);">10</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Reserved</p>
+              </div>
+            </div>
+            <!-- Zone Cards -->
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h4 style="font-size: 14px; font-weight: 600;">🅰️ Zone A - VIP</h4>
+                <span class="status-chip status-chip-success">4/20 Free</span>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 80%; background: var(--danger);"></div></div>
+            </div>
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h4 style="font-size: 14px; font-weight: 600;">🅱️ Zone B - Staff</h4>
+                <span class="status-chip status-chip-warning">6/40 Free</span>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 85%; background: var(--danger);"></div></div>
+            </div>
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h4 style="font-size: 14px; font-weight: 600;">🅲 Zone C - Visitor</h4>
+                <span class="status-chip status-chip-success">8/30 Free</span>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 73%; background: var(--warning);"></div></div>
+            </div>
+            <!-- Recent Activity -->
+            <div class="section-header" style="padding: 16px 0 8px 0;">
+              <span class="section-title">Recent Activity</span>
+            </div>
+            <div class="card" style="padding: 0;">
+              <div class="list-item" style="padding: 10px 12px;">
+                <span style="font-size: 16px;">🚗</span>
+                <div class="list-item-content">
+                  <p style="font-size: 12px;">DL 01 AB 1234 parked at A-12</p>
+                </div>
+                <span style="font-size: 10px; color: var(--text-muted);">10:32</span>
+              </div>
+              <div class="list-item" style="padding: 10px 12px;">
+                <span style="font-size: 16px;">🚙</span>
+                <div class="list-item-content">
+                  <p style="font-size: 12px;">DL 05 CD 5678 exited from B-08</p>
+                </div>
+                <span style="font-size: 10px; color: var(--text-muted);">10:15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Gates Screen
+    function renderCrGates() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Gate Controls</span>
+            <span style="font-size: 18px;">🚧</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Gate 1 -->
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div>
+                  <h4 style="font-size: 14px; font-weight: 600;">🚧 Gate 1 - Main Entry</h4>
+                  <p style="font-size: 11px; color: var(--text-secondary);">Officer: Ramesh Singh</p>
+                </div>
+                <span class="status-chip status-chip-success">● Open</span>
+              </div>
+              <div class="grid-2" style="gap: 8px;">
+                <button class="btn btn-danger btn-sm">🔴 Close</button>
+                <button class="btn btn-outline btn-sm" style="opacity: 0.5;">🟢 Open</button>
+              </div>
+            </div>
+            <!-- Gate 2 -->
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div>
+                  <h4 style="font-size: 14px; font-weight: 600;">🚧 Gate 2 - VIP Entry</h4>
+                  <p style="font-size: 11px; color: var(--text-secondary);">Officer: Arun Kumar</p>
+                </div>
+                <span class="status-chip status-chip-success">● Open</span>
+              </div>
+              <div class="grid-2" style="gap: 8px;">
+                <button class="btn btn-danger btn-sm">🔴 Close</button>
+                <button class="btn btn-outline btn-sm" style="opacity: 0.5;">🟢 Open</button>
+              </div>
+            </div>
+            <!-- Gate 3 -->
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div>
+                  <h4 style="font-size: 14px; font-weight: 600;">🚧 Gate 3 - Service</h4>
+                  <p style="font-size: 11px; color: var(--text-secondary);">Officer: Sunil Kumar</p>
+                </div>
+                <span class="status-chip status-chip-danger">● Closed</span>
+              </div>
+              <div class="grid-2" style="gap: 8px;">
+                <button class="btn btn-outline btn-sm" style="opacity: 0.5;">🔴 Close</button>
+                <button class="btn btn-success btn-sm">🟢 Open</button>
+              </div>
+            </div>
+            <!-- Quick Actions -->
+            <div class="card" style="background: var(--danger-light); border: 1px solid var(--danger);">
+              <h4 style="font-size: 13px; font-weight: 600; color: var(--danger); margin-bottom: 8px;">⚠️ Emergency Actions</h4>
+              <button class="btn btn-danger btn-block">🔒 LOCKDOWN ALL GATES</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Reports Screen
+    function renderCrReports() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Reports Dashboard</span>
+            <span style="font-size: 18px;">📈</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Today's Summary -->
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">📊 Today's Summary</h4>
+              <div class="grid-2" style="gap: 8px;">
+                <div style="padding: 12px; background: var(--bg-light); border-radius: 8px; text-align: center;">
+                  <p style="font-size: 24px; font-weight: 700; color: var(--primary);">247</p>
+                  <p style="font-size: 10px; color: var(--text-secondary);">Total Entries</p>
+                </div>
+                <div style="padding: 12px; background: var(--bg-light); border-radius: 8px; text-align: center;">
+                  <p style="font-size: 24px; font-weight: 700; color: var(--success);">243</p>
+                  <p style="font-size: 10px; color: var(--text-secondary);">Verified</p>
+                </div>
+                <div style="padding: 12px; background: var(--bg-light); border-radius: 8px; text-align: center;">
+                  <p style="font-size: 24px; font-weight: 700; color: var(--danger);">3</p>
+                  <p style="font-size: 10px; color: var(--text-secondary);">Denied</p>
+                </div>
+                <div style="padding: 12px; background: var(--bg-light); border-radius: 8px; text-align: center;">
+                  <p style="font-size: 24px; font-weight: 700; color: var(--warning);">1</p>
+                  <p style="font-size: 10px; color: var(--text-secondary);">Incidents</p>
+                </div>
+              </div>
+            </div>
+            <!-- Quick Reports -->
+            <div class="section-header" style="padding: 16px 0 8px 0;">
+              <span class="section-title">Generate Reports</span>
+            </div>
+            <div class="card" style="padding: 0;">
+              <div class="list-item">
+                <span class="list-item-icon">📋</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Daily Report</p>
+                  <p class="list-item-subtitle">Entry/exit summary</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">📊</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Weekly Analytics</p>
+                  <p class="list-item-subtitle">Trends and patterns</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">⚠️</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Incident Report</p>
+                  <p class="list-item-subtitle">Security incidents</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">🅿️</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Parking Report</p>
+                  <p class="list-item-subtitle">Utilization stats</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Staff Screen
+    function renderCrStaff() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Staff Management</span>
+            <span style="font-size: 18px;">👥</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <div class="grid-3" style="gap: 8px; margin-bottom: 16px;">
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--success);">24</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">On Duty</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--text-muted);">12</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Off Duty</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--warning);">2</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">On Leave</p>
+              </div>
+            </div>
+            <div class="card" style="padding: 0;">
+              <div class="list-item">
+                <div class="avatar avatar-sm" style="background: var(--success);">RS</div>
+                <div class="list-item-content">
+                  <p class="list-item-title">Ramesh Singh</p>
+                  <p class="list-item-subtitle">Gate 1 • Morning Shift</p>
+                </div>
+                <span style="font-size: 10px; color: var(--success);">● On Duty</span>
+              </div>
+              <div class="list-item">
+                <div class="avatar avatar-sm" style="background: var(--success);">AK</div>
+                <div class="list-item-content">
+                  <p class="list-item-title">Arun Kumar</p>
+                  <p class="list-item-subtitle">Gate 2 • Morning Shift</p>
+                </div>
+                <span style="font-size: 10px; color: var(--success);">● On Duty</span>
+              </div>
+              <div class="list-item">
+                <div class="avatar avatar-sm" style="background: var(--text-muted);">SK</div>
+                <div class="list-item-content">
+                  <p class="list-item-title">Sunil Kumar</p>
+                  <p class="list-item-subtitle">Gate 3 • Afternoon Shift</p>
+                </div>
+                <span style="font-size: 10px; color: var(--text-muted);">○ Off Duty</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Shifts Screen
+    function renderCrShifts() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Shift Schedule</span>
+            <span style="font-size: 18px;">📆</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <div style="text-align: center; margin-bottom: 16px;">
+              <p style="font-size: 12px; color: var(--text-secondary);">Today</p>
+              <p style="font-size: 18px; font-weight: 700;">16 January 2026</p>
+            </div>
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--success);">🌅 Morning (6AM - 2PM)</h4>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span style="background: var(--bg-light); padding: 6px 10px; border-radius: 16px; font-size: 12px;">Ramesh S. - G1</span>
+                <span style="background: var(--bg-light); padding: 6px 10px; border-radius: 16px; font-size: 12px;">Arun K. - G2</span>
+                <span style="background: var(--bg-light); padding: 6px 10px; border-radius: 16px; font-size: 12px;">Vijay P. - G3</span>
+              </div>
+            </div>
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--warning);">🌤️ Afternoon (2PM - 10PM)</h4>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span style="background: var(--bg-light); padding: 6px 10px; border-radius: 16px; font-size: 12px;">Sunil K. - G1</span>
+                <span style="background: var(--bg-light); padding: 6px 10px; border-radius: 16px; font-size: 12px;">Mohan R. - G2</span>
+                <span style="background: var(--bg-light); padding: 6px 10px; border-radius: 16px; font-size: 12px;">Ravi S. - G3</span>
+              </div>
+            </div>
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--primary);">🌙 Night (10PM - 6AM)</h4>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span style="background: var(--bg-light); padding: 6px 10px; border-radius: 16px; font-size: 12px;">Deepak M. - G1</span>
+                <span style="background: var(--bg-light); padding: 6px 10px; border-radius: 16px; font-size: 12px;">Amit T. - G2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Daily Report Screen
+    function renderCrDailyReport() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Daily Report</span>
+            <span style="font-size: 18px;">📋</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <div class="card" style="text-align: center;">
+              <p style="font-size: 12px; color: var(--text-secondary);">Report Date</p>
+              <p style="font-size: 18px; font-weight: 700;">16 January 2026</p>
+            </div>
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">📊 Summary</h4>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span>Total Entries</span><span style="font-weight: 600;">247</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span>VIP Visits</span><span style="font-weight: 600;">12</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span>Visitor Passes</span><span style="font-weight: 600;">89</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span>Staff Entries</span><span style="font-weight: 600;">146</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span>Incidents</span><span style="font-weight: 600; color: var(--danger);">1</span></div>
+            </div>
+            <button class="btn btn-primary btn-block">📥 Download PDF Report</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Audit Screen
+    function renderCrAudit() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Audit Log</span>
+            <span style="font-size: 18px;">📜</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+              <span class="status-chip status-chip-primary">All</span>
+              <span class="status-chip status-chip-neutral">System</span>
+              <span class="status-chip status-chip-neutral">User</span>
+            </div>
+            <div class="card" style="padding: 0;">
+              <div style="padding: 12px; border-bottom: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                  <span style="font-weight: 500; font-size: 13px;">Admin Login</span>
+                  <span style="font-size: 10px; color: var(--text-muted);">10:45 AM</span>
+                </div>
+                <p style="font-size: 11px; color: var(--text-secondary);">User: ADMIN-001 • IP: 192.168.1.100</p>
+              </div>
+              <div style="padding: 12px; border-bottom: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                  <span style="font-weight: 500; font-size: 13px;">Visit Approved</span>
+                  <span style="font-size: 10px; color: var(--text-muted);">10:32 AM</span>
+                </div>
+                <p style="font-size: 11px; color: var(--text-secondary);">Request #VR-2026-0156 • By: ADMIN-001</p>
+              </div>
+              <div style="padding: 12px; border-bottom: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                  <span style="font-weight: 500; font-size: 13px;">Gate Override</span>
+                  <span style="font-size: 10px; color: var(--text-muted);">10:15 AM</span>
+                </div>
+                <p style="font-size: 11px; color: var(--text-secondary);">Gate 1 opened manually • By: ADMIN-001</p>
+              </div>
+              <div style="padding: 12px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                  <span style="font-weight: 500; font-size: 13px;">System Startup</span>
+                  <span style="font-size: 10px; color: var(--text-muted);">6:00 AM</span>
+                </div>
+                <p style="font-size: 11px; color: var(--text-secondary);">All systems initialized successfully</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Settings Screen
+    function renderCrSettings() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">System Settings</span>
+            <span></span>
+          </div>
+          <div style="flex: 1; overflow-y: auto;">
+            <div class="section-header"><span class="section-title">Security Settings</span></div>
+            <div style="background: white;">
+              <div class="list-item">
+                <span class="list-item-icon">🔐</span>
+                <div class="list-item-content"><p class="list-item-title">Access Control</p></div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">🚧</span>
+                <div class="list-item-content"><p class="list-item-title">Gate Configuration</p></div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">📹</span>
+                <div class="list-item-content"><p class="list-item-title">Camera Settings</p></div>
+                <span class="list-item-action">›</span>
+              </div>
+            </div>
+            <div class="section-header"><span class="section-title">System</span></div>
+            <div style="background: white;">
+              <div class="list-item">
+                <span class="list-item-icon">🔔</span>
+                <div class="list-item-content"><p class="list-item-title">Notifications</p></div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">💾</span>
+                <div class="list-item-content"><p class="list-item-title">Backup & Restore</p></div>
+                <span class="list-item-action">›</span>
+              </div>
+            </div>
+            <p style="text-align: center; font-size: 11px; color: var(--text-muted); padding: 16px;">Control Room v3.0.1</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Users Screen
+    function renderCrUsers() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">User Management</span>
+            <span style="font-size: 18px;">👤</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <input type="text" class="input" placeholder="🔍 Search users..." style="margin-bottom: 16px;">
+            <div class="card" style="padding: 0;">
+              <div class="list-item">
+                <div class="avatar avatar-sm" style="background: var(--danger);">A</div>
+                <div class="list-item-content">
+                  <p class="list-item-title">Admin User</p>
+                  <p class="list-item-subtitle">Super Admin • ADMIN-001</p>
+                </div>
+                <span class="status-chip status-chip-success" style="font-size: 9px;">Active</span>
+              </div>
+              <div class="list-item">
+                <div class="avatar avatar-sm" style="background: var(--primary);">O</div>
+                <div class="list-item-content">
+                  <p class="list-item-title">Operator 1</p>
+                  <p class="list-item-subtitle">Operator • OP-001</p>
+                </div>
+                <span class="status-chip status-chip-success" style="font-size: 9px;">Active</span>
+              </div>
+              <div class="list-item">
+                <div class="avatar avatar-sm" style="background: var(--info);">V</div>
+                <div class="list-item-content">
+                  <p class="list-item-title">Viewer Account</p>
+                  <p class="list-item-subtitle">Read Only • VIEW-001</p>
+                </div>
+                <span class="status-chip status-chip-neutral" style="font-size: 9px;">Inactive</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 16px; background: white; border-top: 1px solid var(--border);">
+            <button class="btn btn-primary btn-block">+ Add New User</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Vehicles Screen
+    function renderCrVehicles() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Vehicle Database</span>
+            <span style="font-size: 18px;">🚗</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <input type="text" class="input" placeholder="🔍 Search by plate number..." style="margin-bottom: 16px;">
+            <div class="grid-2" style="gap: 8px; margin-bottom: 16px;">
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--primary);">156</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Registered</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 12px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--success);">142</p>
+                <p style="font-size: 10px; color: var(--text-secondary);">Active</p>
+              </div>
+            </div>
+            <div class="card" style="padding: 0;">
+              <div class="list-item">
+                <span style="font-size: 20px;">🚗</span>
+                <div class="list-item-content">
+                  <p class="list-item-title" style="font-family: monospace;">DL 01 AB 1234</p>
+                  <p class="list-item-subtitle">Toyota Innova • Hon. Rajesh Kumar</p>
+                </div>
+                <span class="status-chip status-chip-success" style="font-size: 9px;">Active</span>
+              </div>
+              <div class="list-item">
+                <span style="font-size: 20px;">🚙</span>
+                <div class="list-item-content">
+                  <p class="list-item-title" style="font-family: monospace;">DL 02 MG 9999</p>
+                  <p class="list-item-subtitle">BMW 5 Series • Hon. Meera Gupta</p>
+                </div>
+                <span class="status-chip status-chip-success" style="font-size: 9px;">Active</span>
+              </div>
+              <div class="list-item">
+                <span style="font-size: 20px;">🚐</span>
+                <div class="list-item-content">
+                  <p class="list-item-title" style="font-family: monospace;">DL 05 CD 5678</p>
+                  <p class="list-item-subtitle">Maruti Ertiga • Staff Pool</p>
+                </div>
+                <span class="status-chip status-chip-warning" style="font-size: 9px;">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Blacklist Screen
+    function renderCrBlacklist() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--danger); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Blacklist</span>
+            <span style="font-size: 18px;">🚫</span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <div style="background: var(--danger-light); padding: 12px; border-radius: 8px; margin-bottom: 16px;">
+              <p style="font-size: 12px; color: var(--danger);">⚠️ Entries on this list are automatically denied access at all checkpoints.</p>
+            </div>
+            <div class="card" style="padding: 0; border: 1px solid var(--danger);">
+              <div class="list-item">
+                <span style="font-size: 20px;">🚫</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Unknown Person #1</p>
+                  <p class="list-item-subtitle">Added: 15 Jan 2026 • Reason: Security breach</p>
+                </div>
+                <span style="font-size: 12px;">›</span>
+              </div>
+              <div class="list-item">
+                <span style="font-size: 20px;">🚗</span>
+                <div class="list-item-content">
+                  <p class="list-item-title" style="font-family: monospace;">UP 32 XX 0000</p>
+                  <p class="list-item-subtitle">Added: 10 Jan 2026 • Reason: Stolen vehicle</p>
+                </div>
+                <span style="font-size: 12px;">›</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 16px; background: white; border-top: 1px solid var(--border);">
+            <button class="btn btn-danger btn-block">+ Add to Blacklist</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Control Room Notifications Screen
+    function renderCrNotifications() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Notifications</span>
+            <span class="badge">5</span>
+          </div>
+          <div style="flex: 1; overflow-y: auto;">
+            <div class="section-header"><span class="section-title">Today</span></div>
+            <div style="background: white;">
+              <div class="list-item" style="background: var(--danger-light);">
+                <span style="font-size: 20px;">🚨</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Security Alert</p>
+                  <p class="list-item-subtitle">Unauthorized entry attempt at Gate 1</p>
+                </div>
+                <span style="font-size: 10px; color: var(--text-muted);">10:15</span>
+              </div>
+              <div class="list-item">
+                <span style="font-size: 20px;">📋</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">New Approval Request</p>
+                  <p class="list-item-subtitle">VIP visit request from Hon. Meera Gupta</p>
+                </div>
+                <span style="font-size: 10px; color: var(--text-muted);">9:45</span>
+              </div>
+              <div class="list-item">
+                <span style="font-size: 20px;">✅</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Entry Verified</p>
+                  <p class="list-item-subtitle">Hon. Rajesh Kumar entered via Gate 1</p>
+                </div>
+                <span style="font-size: 10px; color: var(--text-muted);">10:32</span>
+              </div>
+            </div>
+            <div class="section-header"><span class="section-title">Yesterday</span></div>
+            <div style="background: white;">
+              <div class="list-item">
+                <span style="font-size: 20px;">⚙️</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">System Update</p>
+                  <p class="list-item-subtitle">ANPR system updated to v2.5</p>
+                </div>
+                <span style="font-size: 10px; color: var(--text-muted);">Yesterday</span>
+              </div>
+              <div class="list-item">
+                <span style="font-size: 20px;">🔄</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Shift Handover</p>
+                  <p class="list-item-subtitle">Evening shift completed successfully</p>
+                </div>
+                <span style="font-size: 10px; color: var(--text-muted);">Yesterday</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ============================================
+    // VISITOR APP SCREENS (8)
+    // ============================================
+
+    // Visitor Splash Screen
+    function renderVisSplash() {
+      return `
+        <div class="splash-screen">
+          <div class="splash-logo">🏛️</div>
+          <h1 class="splash-title">PARLIAMENT HOUSE</h1>
+          <p class="splash-subtitle">VISITOR PASS</p>
+          <div class="splash-loader"><div class="splash-loader-bar"></div></div>
+          <div class="splash-footer">Welcome to Parliament House</div>
+        </div>
+      `;
+    }
+
+    // Visitor Login Screen
+    function renderVisLogin() {
+      return `
+        <div class="screen" style="background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 24px;">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <span style="font-size: 48px;">🎫</span>
+              <h2 style="color: white; font-size: 18px; margin-top: 12px;">Visitor Access</h2>
+              <p style="color: rgba(255,255,255,0.7); font-size: 12px;">Enter your pass code to continue</p>
+            </div>
+            <div class="card">
+              <div class="input-group">
+                <label class="input-label">🔑 Pass Code</label>
+                <input type="text" class="input input-lg" placeholder="Enter 8-digit pass code" value="VIS-2026-0156" style="text-align: center; font-family: monospace; letter-spacing: 2px;">
+              </div>
+              <p style="font-size: 11px; color: var(--text-secondary); text-align: center;">Pass code was sent to your registered mobile number</p>
+            </div>
+            <button class="btn btn-secondary btn-lg btn-block">🔓 Access My Pass</button>
+            <p style="text-align: center; color: rgba(255,255,255,0.6); font-size: 11px; margin-top: 16px;">Need help? Contact the reception desk</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Visitor Home Screen
+    function renderVisHome() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div style="background: var(--primary); color: white; padding: 20px;">
+            <p style="font-size: 12px; opacity: 0.8;">Welcome</p>
+            <h2 style="font-size: 18px; font-weight: 600;">Priya Singh</h2>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Pass Card -->
+            <div class="card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <div>
+                  <p style="font-size: 11px; opacity: 0.8;">VISITOR PASS</p>
+                  <p style="font-size: 16px; font-weight: 600;">VIS-2026-0156</p>
+                </div>
+                <span class="status-chip" style="background: rgba(255,255,255,0.2); color: white;">✓ Valid</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; opacity: 0.9;">
+                <span>Today, 10:00 AM - 12:00 PM</span>
+                <span>Gate 1</span>
+              </div>
+            </div>
+            <!-- Quick Actions -->
+            <div class="grid-2" style="gap: 12px; margin-bottom: 16px;">
+              <div class="card" style="text-align: center; padding: 16px;">
+                <span style="font-size: 32px;">🎫</span>
+                <p style="font-size: 12px; font-weight: 500; margin-top: 8px;">View Pass</p>
+              </div>
+              <div class="card" style="text-align: center; padding: 16px;">
+                <span style="font-size: 32px;">🗺️</span>
+                <p style="font-size: 12px; font-weight: 500; margin-top: 8px;">Navigate</p>
+              </div>
+            </div>
+            <!-- Visit Info -->
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">📅 Visit Details</h4>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span style="color: var(--text-secondary);">Host</span><span style="font-weight: 500;">Hon. Rajesh Kumar</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);"><span style="color: var(--text-secondary);">Purpose</span><span style="font-weight: 500;">Meeting</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span style="color: var(--text-secondary);">Location</span><span style="font-weight: 500;">Building A, Room 204</span></div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <a class="bottom-nav-item active"><span class="icon">🏠</span>Home</a>
+            <a class="bottom-nav-item"><span class="icon">🎫</span>Pass</a>
+            <a class="bottom-nav-item"><span class="icon">🗺️</span>Navigate</a>
+            <a class="bottom-nav-item"><span class="icon">❓</span>Help</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Visitor Pass Screen
+    function renderVisPass() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">My Pass</span>
+            <span></span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto; display: flex; flex-direction: column; align-items: center;">
+            <!-- Pass Card -->
+            <div class="card" style="width: 100%; text-align: center;">
+              <div style="margin-bottom: 16px;">
+                <p style="font-size: 11px; color: var(--text-secondary); text-transform: uppercase;">Parliament House</p>
+                <p style="font-size: 18px; font-weight: 700; color: var(--primary);">VISITOR PASS</p>
+              </div>
+              <!-- QR Code -->
+              <div class="qr-code" style="margin-bottom: 16px;">📱</div>
+              <p style="font-family: monospace; font-size: 16px; font-weight: 600; letter-spacing: 2px; margin-bottom: 16px;">VIS-2026-0156</p>
+              <!-- Visitor Info -->
+              <div style="text-align: left; border-top: 1px solid var(--border); padding-top: 16px;">
+                <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span style="color: var(--text-secondary); font-size: 12px;">Name</span><span style="font-weight: 500; font-size: 12px;">Priya Singh</span></div>
+                <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span style="color: var(--text-secondary); font-size: 12px;">Date</span><span style="font-weight: 500; font-size: 12px;">16 Jan 2026</span></div>
+                <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span style="color: var(--text-secondary); font-size: 12px;">Time</span><span style="font-weight: 500; font-size: 12px;">10:00 AM - 12:00 PM</span></div>
+                <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span style="color: var(--text-secondary); font-size: 12px;">Entry Gate</span><span style="font-weight: 500; font-size: 12px;">Gate 1 - Main</span></div>
+                <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span style="color: var(--text-secondary); font-size: 12px;">Host</span><span style="font-weight: 500; font-size: 12px;">Hon. Rajesh Kumar</span></div>
+              </div>
+            </div>
+            <p style="font-size: 11px; color: var(--text-secondary); text-align: center;">Show this QR code at the security checkpoint</p>
+          </div>
+          <div class="bottom-nav">
+            <a class="bottom-nav-item"><span class="icon">🏠</span>Home</a>
+            <a class="bottom-nav-item active"><span class="icon">🎫</span>Pass</a>
+            <a class="bottom-nav-item"><span class="icon">🗺️</span>Navigate</a>
+            <a class="bottom-nav-item"><span class="icon">❓</span>Help</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Visitor Navigate Screen
+    function renderVisNavigate() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Navigate</span>
+            <span></span>
+          </div>
+          <div style="flex: 1; overflow-y: auto;">
+            <!-- Map Area -->
+            <div style="height: 250px; background: var(--bg-dark); display: flex; align-items: center; justify-content: center; position: relative;">
+              <span style="font-size: 64px; opacity: 0.3;">🗺️</span>
+              <div style="position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px;">Parliament Complex</div>
+              <!-- Current Location -->
+              <div style="position: absolute; bottom: 80px; left: 60px; width: 20px; height: 20px; background: var(--info); border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 10px;">📍</span>
+              </div>
+              <!-- Destination -->
+              <div style="position: absolute; top: 60px; right: 80px; width: 24px; height: 24px; background: var(--danger); border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 12px;">🎯</span>
+              </div>
+              <!-- Path -->
+              <div style="position: absolute; bottom: 8px; left: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 8px; border-radius: 4px;">
+                <p style="font-size: 11px;">📍 Gate 1 → 🎯 Building A, Room 204</p>
+                <p style="font-size: 10px; opacity: 0.7; margin-top: 2px;">~5 min walk</p>
+              </div>
+            </div>
+            <div style="padding: 16px;">
+              <!-- Directions -->
+              <div class="card">
+                <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">🚶 Directions</h4>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; gap: 12px; align-items: flex-start;">
+                    <div style="width: 24px; height: 24px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;">1</div>
+                    <div><p style="font-size: 13px;">Enter through Gate 1 - Main Entry</p><p style="font-size: 11px; color: var(--text-secondary);">Show your QR pass at security</p></div>
+                  </div>
+                  <div style="display: flex; gap: 12px; align-items: flex-start;">
+                    <div style="width: 24px; height: 24px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;">2</div>
+                    <div><p style="font-size: 13px;">Walk straight to Building A</p><p style="font-size: 11px; color: var(--text-secondary);">Follow the covered walkway</p></div>
+                  </div>
+                  <div style="display: flex; gap: 12px; align-items: flex-start;">
+                    <div style="width: 24px; height: 24px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;">🎯</div>
+                    <div><p style="font-size: 13px;">Take elevator to Floor 2, Room 204</p><p style="font-size: 11px; color: var(--text-secondary);">Your destination</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <a class="bottom-nav-item"><span class="icon">🏠</span>Home</a>
+            <a class="bottom-nav-item"><span class="icon">🎫</span>Pass</a>
+            <a class="bottom-nav-item active"><span class="icon">🗺️</span>Navigate</a>
+            <a class="bottom-nav-item"><span class="icon">❓</span>Help</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Visitor Check-in Screen
+    function renderVisCheckin() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Self Check-in</span>
+            <span></span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class="card" style="width: 100%; text-align: center;">
+              <span style="font-size: 64px; display: block; margin-bottom: 16px;">✅</span>
+              <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Ready to Check-in?</h3>
+              <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 24px;">Tap the button below when you arrive at the security checkpoint</p>
+              <button class="btn btn-success btn-lg btn-block" style="font-size: 18px; padding: 20px;">
+                ✓ Check-in Now
+              </button>
+              <p style="font-size: 11px; color: var(--text-muted); margin-top: 16px;">Make sure you're at Gate 1 - Main Entry</p>
+            </div>
+            <!-- Info -->
+            <div style="margin-top: 16px; padding: 12px; background: var(--info-light); border-radius: 8px; width: 100%;">
+              <p style="font-size: 12px; color: var(--info); display: flex; align-items: flex-start; gap: 8px;">
+                <span>ℹ️</span>
+                <span>Self check-in speeds up your entry. Security will still verify your identity.</span>
+              </p>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <a class="bottom-nav-item"><span class="icon">🏠</span>Home</a>
+            <a class="bottom-nav-item"><span class="icon">🎫</span>Pass</a>
+            <a class="bottom-nav-item"><span class="icon">🗺️</span>Navigate</a>
+            <a class="bottom-nav-item"><span class="icon">❓</span>Help</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Visitor Status Screen
+    function renderVisStatus() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Visit Status</span>
+            <span></span>
+          </div>
+          <div style="padding: 16px; flex: 1; overflow-y: auto;">
+            <!-- Current Status -->
+            <div class="card" style="text-align: center; border: 2px solid var(--success);">
+              <span style="font-size: 48px; display: block; margin-bottom: 8px;">✅</span>
+              <h3 style="font-size: 18px; font-weight: 600; color: var(--success);">Checked In</h3>
+              <p style="font-size: 12px; color: var(--text-secondary);">Entry time: 10:05 AM</p>
+            </div>
+            <!-- Timeline -->
+            <div class="card">
+              <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 16px;">📋 Visit Timeline</h4>
+              <div style="display: flex; flex-direction: column; gap: 16px; position: relative;">
+                <div style="position: absolute; left: 11px; top: 24px; bottom: 24px; width: 2px; background: var(--border);"></div>
+                <div style="display: flex; gap: 12px; align-items: flex-start; position: relative;">
+                  <div style="width: 24px; height: 24px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0;">✓</div>
+                  <div><p style="font-size: 13px; font-weight: 500;">Pass Generated</p><p style="font-size: 11px; color: var(--text-secondary);">15 Jan, 4:30 PM</p></div>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: flex-start; position: relative;">
+                  <div style="width: 24px; height: 24px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0;">✓</div>
+                  <div><p style="font-size: 13px; font-weight: 500;">Security Verified</p><p style="font-size: 11px; color: var(--text-secondary);">Today, 10:02 AM</p></div>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: flex-start; position: relative;">
+                  <div style="width: 24px; height: 24px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0;">✓</div>
+                  <div><p style="font-size: 13px; font-weight: 500;">Checked In</p><p style="font-size: 11px; color: var(--text-secondary);">Today, 10:05 AM</p></div>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: flex-start; position: relative;">
+                  <div style="width: 24px; height: 24px; background: var(--border); color: var(--text-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0;">○</div>
+                  <div><p style="font-size: 13px; font-weight: 500; color: var(--text-muted);">Check Out</p><p style="font-size: 11px; color: var(--text-muted);">Expected by 12:00 PM</p></div>
+                </div>
+              </div>
+            </div>
+            <!-- Reminder -->
+            <div style="background: var(--warning-light); padding: 12px; border-radius: 8px;">
+              <p style="font-size: 12px; color: var(--warning); display: flex; align-items: center; gap: 8px;">
+                <span>⏰</span>
+                <span>Remember to check out before 12:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <a class="bottom-nav-item"><span class="icon">🏠</span>Home</a>
+            <a class="bottom-nav-item"><span class="icon">🎫</span>Pass</a>
+            <a class="bottom-nav-item"><span class="icon">🗺️</span>Navigate</a>
+            <a class="bottom-nav-item"><span class="icon">❓</span>Help</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Visitor Help Screen
+    function renderVisHelp() {
+      return `
+        <div class="screen" style="background: var(--bg-light);">
+          <div class="header-bar" style="background: var(--primary); color: white; border: none;">
+            <span class="header-back">←</span>
+            <span class="header-title" style="color: white;">Help & Support</span>
+            <span></span>
+          </div>
+          <div style="flex: 1; overflow-y: auto;">
+            <!-- Emergency -->
+            <div style="padding: 16px;">
+              <div class="card" style="background: var(--danger); color: white; text-align: center;">
+                <span style="font-size: 32px; display: block; margin-bottom: 8px;">🚨</span>
+                <p style="font-weight: 600;">Emergency?</p>
+                <p style="font-size: 12px; opacity: 0.9; margin-bottom: 12px;">Contact security immediately</p>
+                <button class="btn btn-lg" style="background: white; color: var(--danger);">📞 Call Security</button>
+              </div>
+            </div>
+            <!-- Contact Options -->
+            <div class="section-header"><span class="section-title">Contact</span></div>
+            <div style="background: white;">
+              <div class="list-item">
+                <span class="list-item-icon">📞</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Reception Desk</p>
+                  <p class="list-item-subtitle">+91 11 2345 6789</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">💬</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Live Chat</p>
+                  <p class="list-item-subtitle">Chat with support</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+            </div>
+            <!-- FAQ -->
+            <div class="section-header"><span class="section-title">Frequently Asked</span></div>
+            <div style="background: white;">
+              <div class="list-item">
+                <span class="list-item-icon">❓</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Where do I check in?</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">❓</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">What ID do I need?</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+              <div class="list-item">
+                <span class="list-item-icon">❓</span>
+                <div class="list-item-content">
+                  <p class="list-item-title">Can I extend my visit?</p>
+                </div>
+                <span class="list-item-action">›</span>
+              </div>
+            </div>
+            <p style="text-align: center; font-size: 11px; color: var(--text-muted); padding: 16px;">Visitor App v1.0</p>
+          </div>
+          <div class="bottom-nav">
+            <a class="bottom-nav-item"><span class="icon">🏠</span>Home</a>
+            <a class="bottom-nav-item"><span class="icon">🎫</span>Pass</a>
+            <a class="bottom-nav-item"><span class="icon">🗺️</span>Navigate</a>
+            <a class="bottom-nav-item active"><span class="icon">❓</span>Help</a>
+          </div>
+        </div>
+      `;
+    }
+
     // Screen Registry - All 86 screens
     const SCREENS = {
       // VIP App Screens (10)
@@ -4740,40 +6444,40 @@
       'sec-settings': { app: 'security', title: 'Settings', number: '3.24', render: renderSecSettings },
 
       // Control Room App Screens (24)
-      'cr-splash': { app: 'controlroom', title: 'Splash', number: '4.1', render: () => renderPlaceholder('Control Room Splash', '🏛️') },
-      'cr-login': { app: 'controlroom', title: 'Login', number: '4.2', render: () => renderPlaceholder('Control Room Login', '🔐') },
-      'cr-dashboard': { app: 'controlroom', title: 'Dashboard', number: '4.3', render: () => renderPlaceholder('Main Dashboard', '📊') },
-      'cr-monitoring': { app: 'controlroom', title: 'Monitoring', number: '4.4', render: () => renderPlaceholder('Live Monitoring', '👁️') },
-      'cr-surveillance': { app: 'controlroom', title: 'Surveillance', number: '4.5', render: () => renderPlaceholder('AI Surveillance', '📹') },
-      'cr-approvals': { app: 'controlroom', title: 'Approvals', number: '4.6', render: () => renderPlaceholder('Pending Approvals', '📝') },
-      'cr-approval-detail': { app: 'controlroom', title: 'Approval Detail', number: '4.7', render: () => renderPlaceholder('Approval Detail', '📄') },
-      'cr-schedule': { app: 'controlroom', title: 'Schedule', number: '4.8', render: () => renderPlaceholder('Today\'s Schedule', '📅') },
-      'cr-tracking': { app: 'controlroom', title: 'Tracking', number: '4.9', render: () => renderPlaceholder('Visitor Tracking', '📍') },
-      'cr-incidents': { app: 'controlroom', title: 'Incidents', number: '4.10', render: () => renderPlaceholder('Incident Management', '⚠️') },
-      'cr-new-incident': { app: 'controlroom', title: 'New Incident', number: '4.11', render: () => renderPlaceholder('New Incident', '📝') },
-      'cr-emergency': { app: 'controlroom', title: 'Emergency', number: '4.12', render: () => renderPlaceholder('Emergency Panel', '🚨') },
-      'cr-parking': { app: 'controlroom', title: 'Parking', number: '4.13', render: () => renderPlaceholder('Parking Overview', '🅿️') },
-      'cr-gates': { app: 'controlroom', title: 'Gates', number: '4.14', render: () => renderPlaceholder('Gate Controls', '🚧') },
-      'cr-staff': { app: 'controlroom', title: 'Staff', number: '4.15', render: () => renderPlaceholder('Staff Management', '👥') },
-      'cr-shifts': { app: 'controlroom', title: 'Shifts', number: '4.16', render: () => renderPlaceholder('Shift Schedule', '📆') },
-      'cr-reports': { app: 'controlroom', title: 'Reports', number: '4.17', render: () => renderPlaceholder('Reports Dashboard', '📈') },
-      'cr-daily-report': { app: 'controlroom', title: 'Daily Report', number: '4.18', render: () => renderPlaceholder('Daily Report', '📋') },
-      'cr-audit': { app: 'controlroom', title: 'Audit Log', number: '4.19', render: () => renderPlaceholder('Audit Log', '📜') },
-      'cr-settings': { app: 'controlroom', title: 'Settings', number: '4.20', render: () => renderPlaceholder('System Settings', '⚙️') },
-      'cr-users': { app: 'controlroom', title: 'Users', number: '4.21', render: () => renderPlaceholder('User Management', '👤') },
-      'cr-vehicles': { app: 'controlroom', title: 'Vehicles', number: '4.22', render: () => renderPlaceholder('Vehicle Database', '🚗') },
-      'cr-blacklist': { app: 'controlroom', title: 'Blacklist', number: '4.23', render: () => renderPlaceholder('Blacklist', '🚫') },
-      'cr-notifications': { app: 'controlroom', title: 'Notifications', number: '4.24', render: () => renderPlaceholder('Notifications', '🔔') },
+      'cr-splash': { app: 'controlroom', title: 'Splash', number: '4.1', render: renderCrSplash },
+      'cr-login': { app: 'controlroom', title: 'Login', number: '4.2', render: renderCrLogin },
+      'cr-dashboard': { app: 'controlroom', title: 'Dashboard', number: '4.3', render: renderCrDashboard },
+      'cr-monitoring': { app: 'controlroom', title: 'Monitoring', number: '4.4', render: renderCrMonitoring },
+      'cr-surveillance': { app: 'controlroom', title: 'Surveillance', number: '4.5', render: renderCrSurveillance },
+      'cr-approvals': { app: 'controlroom', title: 'Approvals', number: '4.6', render: renderCrApprovals },
+      'cr-approval-detail': { app: 'controlroom', title: 'Approval Detail', number: '4.7', render: renderCrApprovalDetail },
+      'cr-schedule': { app: 'controlroom', title: 'Schedule', number: '4.8', render: renderCrSchedule },
+      'cr-tracking': { app: 'controlroom', title: 'Tracking', number: '4.9', render: renderCrTracking },
+      'cr-incidents': { app: 'controlroom', title: 'Incidents', number: '4.10', render: renderCrIncidents },
+      'cr-new-incident': { app: 'controlroom', title: 'New Incident', number: '4.11', render: renderCrNewIncident },
+      'cr-emergency': { app: 'controlroom', title: 'Emergency', number: '4.12', render: renderCrEmergency },
+      'cr-parking': { app: 'controlroom', title: 'Parking', number: '4.13', render: renderCrParking },
+      'cr-gates': { app: 'controlroom', title: 'Gates', number: '4.14', render: renderCrGates },
+      'cr-staff': { app: 'controlroom', title: 'Staff', number: '4.15', render: renderCrStaff },
+      'cr-shifts': { app: 'controlroom', title: 'Shifts', number: '4.16', render: renderCrShifts },
+      'cr-reports': { app: 'controlroom', title: 'Reports', number: '4.17', render: renderCrReports },
+      'cr-daily-report': { app: 'controlroom', title: 'Daily Report', number: '4.18', render: renderCrDailyReport },
+      'cr-audit': { app: 'controlroom', title: 'Audit Log', number: '4.19', render: renderCrAudit },
+      'cr-settings': { app: 'controlroom', title: 'Settings', number: '4.20', render: renderCrSettings },
+      'cr-users': { app: 'controlroom', title: 'Users', number: '4.21', render: renderCrUsers },
+      'cr-vehicles': { app: 'controlroom', title: 'Vehicles', number: '4.22', render: renderCrVehicles },
+      'cr-blacklist': { app: 'controlroom', title: 'Blacklist', number: '4.23', render: renderCrBlacklist },
+      'cr-notifications': { app: 'controlroom', title: 'Notifications', number: '4.24', render: renderCrNotifications },
 
       // Visitor App Screens (8)
-      'vis-splash': { app: 'visitor', title: 'Splash', number: '5.1', render: () => renderPlaceholder('Visitor Splash', '🏛️') },
-      'vis-login': { app: 'visitor', title: 'Login', number: '5.2', render: () => renderPlaceholder('Visitor Login', '🔐') },
-      'vis-home': { app: 'visitor', title: 'Home', number: '5.3', render: () => renderPlaceholder('Visitor Home', '🏠') },
-      'vis-pass': { app: 'visitor', title: 'Pass View', number: '5.4', render: () => renderPlaceholder('Pass View', '🎫') },
-      'vis-navigate': { app: 'visitor', title: 'Navigate', number: '5.5', render: () => renderPlaceholder('Navigation', '🗺️') },
-      'vis-checkin': { app: 'visitor', title: 'Check-in', number: '5.6', render: () => renderPlaceholder('Self Check-in', '✅') },
-      'vis-status': { app: 'visitor', title: 'Status', number: '5.7', render: () => renderPlaceholder('Visit Status', '📊') },
-      'vis-help': { app: 'visitor', title: 'Help', number: '5.8', render: () => renderPlaceholder('Help', '❓') }
+      'vis-splash': { app: 'visitor', title: 'Splash', number: '5.1', render: renderVisSplash },
+      'vis-login': { app: 'visitor', title: 'Login', number: '5.2', render: renderVisLogin },
+      'vis-home': { app: 'visitor', title: 'Home', number: '5.3', render: renderVisHome },
+      'vis-pass': { app: 'visitor', title: 'Pass View', number: '5.4', render: renderVisPass },
+      'vis-navigate': { app: 'visitor', title: 'Navigate', number: '5.5', render: renderVisNavigate },
+      'vis-checkin': { app: 'visitor', title: 'Check-in', number: '5.6', render: renderVisCheckin },
+      'vis-status': { app: 'visitor', title: 'Status', number: '5.7', render: renderVisStatus },
+      'vis-help': { app: 'visitor', title: 'Help', number: '5.8', render: renderVisHelp }
     };
 
     // Get ordered list of screen IDs
