@@ -944,6 +944,480 @@
       flex: 1;
       overflow-y: auto;
       background: var(--bg-light);
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Enhanced Touch Animation Styles */
+    .touch-indicator {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 153, 51, 0.4) 0%, rgba(26, 54, 93, 0.2) 50%, rgba(26, 54, 93, 0) 70%);
+      border: 3px solid rgba(255, 153, 51, 0.6);
+      pointer-events: none;
+      z-index: 1000;
+      animation: touchPulseEnhanced 0.8s ease-out;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px rgba(255, 153, 51, 0.4);
+    }
+
+    @keyframes touchPulseEnhanced {
+      0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+      }
+    }
+
+    .touch-ripple {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 153, 51, 0.5);
+      pointer-events: none;
+      z-index: 999;
+      animation: rippleEffectEnhanced 1s ease-out;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes rippleEffectEnhanced {
+      0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 0;
+      }
+    }
+
+    /* Touch point marker */
+    .touch-point {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 153, 51, 0.9);
+      pointer-events: none;
+      z-index: 1001;
+      transform: translate(-50%, -50%);
+      animation: touchPointPulse 0.6s ease-out;
+      box-shadow: 0 0 10px rgba(255, 153, 51, 0.6);
+    }
+
+    @keyframes touchPointPulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.8;
+      }
+    }
+
+    /* Slide transition animations */
+    .screen-content.slide-out-left {
+      animation: slideOutLeft 0.3s ease-out forwards;
+    }
+
+    .screen-content.slide-in-right {
+      animation: slideInRight 0.3s ease-out forwards;
+    }
+
+    .screen-content.slide-out-right {
+      animation: slideOutRight 0.3s ease-out forwards;
+    }
+
+    .screen-content.slide-in-left {
+      animation: slideInLeft 0.3s ease-out forwards;
+    }
+
+    @keyframes slideOutLeft {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOutRight {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Fade transition */
+    .screen-content.fade-out {
+      animation: fadeOut 0.2s ease-out forwards;
+    }
+
+    .screen-content.fade-in {
+      animation: fadeIn 0.3s ease-in forwards;
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Enhanced Button press animation */
+    .btn-press {
+      animation: buttonPressEnhanced 0.4s ease-out;
+    }
+
+    @keyframes buttonPressEnhanced {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      30% {
+        transform: scale(0.92);
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+      }
+      60% {
+        transform: scale(1.02);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.12);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    /* Element highlight animation */
+    .element-highlight {
+      animation: highlightPulse 1s ease-in-out;
+      position: relative;
+    }
+
+    @keyframes highlightPulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 153, 51, 0);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(255, 153, 51, 0.4);
+      }
+    }
+
+    /* Enhanced Scroll animation */
+    .scroll-indicator {
+      position: absolute;
+      right: 8px;
+      width: 6px;
+      background: linear-gradient(180deg, rgba(255, 153, 51, 0.8) 0%, rgba(255, 153, 51, 0.4) 100%);
+      border-radius: 3px;
+      pointer-events: none;
+      z-index: 999;
+      animation: scrollMoveEnhanced 1.5s ease-in-out;
+      box-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
+    }
+
+    @keyframes scrollMoveEnhanced {
+      0% {
+        top: 60px;
+        height: 50px;
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        top: 300px;
+        height: 80px;
+        opacity: 0;
+      }
+    }
+
+    /* Enhanced interaction animations - NEXT LEVEL */
+    
+    /* Typing cursor animation */
+    .typing-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--primary);
+      margin-left: 2px;
+      animation: cursorBlink 1s infinite;
+    }
+
+    @keyframes cursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    /* Dropdown expansion animation */
+    .dropdown-expanded {
+      position: absolute;
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: dropdownSlide 0.3s ease-out;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    @keyframes dropdownSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown-option {
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dropdown-option:hover {
+      background: var(--bg-light);
+    }
+
+    .dropdown-option.selected {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+
+    /* Loading spinner */
+    .loading-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(26, 54, 93, 0.1);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      z-index: 1000;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Success/Error toast */
+    .toast {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 2000;
+      animation: toastSlide 0.3s ease-out;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .toast-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .toast-error {
+      background: var(--danger);
+      color: white;
+    }
+
+    .toast-info {
+      background: var(--info);
+      color: white;
+    }
+
+    @keyframes toastSlide {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    /* Haptic pulse effect */
+    .haptic-pulse {
+      animation: hapticPulse 0.3s ease-out;
+    }
+
+    @keyframes hapticPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.97); }
+      100% { transform: scale(1); }
+    }
+
+    /* Swipe gesture indicator */
+    .swipe-indicator {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 153, 51, 0.4) 0%, rgba(255, 153, 51, 0) 70%);
+      pointer-events: none;
+      z-index: 1000;
+      animation: swipeMove 0.8s ease-in-out;
+    }
+
+    @keyframes swipeMove {
+      0% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100px) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Form validation feedback */
+    .input-valid {
+      border-color: var(--success) !important;
+      box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.1) !important;
+    }
+
+    .input-invalid {
+      border-color: var(--danger) !important;
+      box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1) !important;
+      animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+
+    /* Checkmark animation */
+    .checkmark {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--success);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      animation: checkmarkPop 0.4s ease-out;
+    }
+
+    @keyframes checkmarkPop {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Progress indicator */
+    .step-progress {
+      position: relative;
+      height: 4px;
+      background: rgba(26, 54, 93, 0.1);
+      overflow: hidden;
+    }
+
+    .step-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      animation: progressFill 0.5s ease-out forwards;
+    }
+
+    @keyframes progressFill {
+      from { width: 0%; }
+    }
+
+    /* Data loading skeleton */
+    .skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: skeletonLoading 1.5s infinite;
+      border-radius: var(--radius-md);
+    }
+
+    @keyframes skeletonLoading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     .home-indicator {
@@ -960,30 +1434,6 @@
       height: 5px;
       background: #000;
       border-radius: 3px;
-    }
-
-    /* Keyboard Shortcuts Bar */
-    .shortcuts-bar {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.8);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 12px;
-      display: flex;
-      gap: 20px;
-      z-index: 50;
-    }
-
-    .shortcuts-bar kbd {
-      background: rgba(255,255,255,0.2);
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-family: inherit;
-      margin-right: 4px;
     }
 
     /* Show Sidebar Button (when hidden) */
@@ -1193,11 +1643,41 @@
     </div>
   </main>
 
-  <!-- Keyboard Shortcuts Bar -->
-  <div class="shortcuts-bar">
-    <span><kbd>H</kbd> Toggle Nav</span>
-    <span><kbd>←</kbd><kbd>→</kbd> Prev/Next</span>
-    <span><kbd>1-5</kbd> Switch App</span>
+
+  <!-- Animation Control Panel - Fixed Position on Right Side -->
+  <div id="animationPanel" style="position: fixed; top: 80px; right: 20px; width: 340px; background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%); padding: 24px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(26, 54, 93, 0.1); z-index: 200; display: none; border: 2px solid rgba(255, 153, 51, 0.2);">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+      <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);">🎬</div>
+      <div>
+        <h3 style="margin: 0; font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: -0.5px;">Parliament Security</h3>
+        <p style="margin: 0; font-size: 11px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Interactive Demo</p>
+      </div>
+    </div>
+    <p style="margin: 0 0 20px 0; font-size: 13px; color: var(--text-secondary); line-height: 1.5;">Experience the complete security flow with realistic touch interactions and animations.</p>
+    <button id="startDemoBtn" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 12px; font-size: 15px; padding: 14px; box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3); background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);">
+      ▶️ Start Interactive Demo
+    </button>
+    <button id="pauseDemoBtn" class="btn btn-outline btn-block" style="display: none; margin-bottom: 12px; font-size: 14px;">
+      ⏸️ Pause
+    </button>
+    <button id="stopDemoBtn" class="btn btn-danger btn-block" style="display: none; font-size: 14px;">
+      ⏹️ Stop Demo
+    </button>
+    <div id="demoProgress" style="margin-top: 20px; display: none; padding: 16px; background: rgba(26, 54, 93, 0.05); border-radius: 12px; border: 1px solid rgba(26, 54, 93, 0.1);">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <span style="font-size: 13px; font-weight: 700; color: var(--primary);" id="demoStepText">Step 1 of 20</span>
+        <span style="font-size: 12px; color: var(--text-secondary); font-weight: 600;" id="demoTimeText">0:00 / 1:45</span>
+      </div>
+      <div class="progress-bar" style="height: 6px; background: rgba(26, 54, 93, 0.15);">
+        <div class="progress-bar-fill" id="demoProgressBar" style="width: 0%; background: linear-gradient(90deg, var(--secondary) 0%, var(--secondary-light) 100%); box-shadow: 0 0 10px rgba(255, 153, 51, 0.5);"></div>
+      </div>
+      <p style="margin-top: 12px; font-size: 12px; color: var(--text-primary); font-weight: 500; line-height: 1.4;" id="demoCurrentStep">Initializing...</p>
+    </div>
+  </div>
+
+  <!-- Enhanced Demo Overlay (shows which app is active) - MOVED TO TOP -->
+  <div id="demoOverlay" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(15, 39, 68, 0.95) 100%); color: white; padding: 12px 28px; border-radius: 12px; font-size: 14px; font-weight: 600; z-index: 150; display: none; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255, 153, 51, 0.3); border: 2px solid rgba(255, 153, 51, 0.4); backdrop-filter: blur(10px);">
+    <span id="demoOverlayText" style="display: flex; align-items: center; gap: 10px;">PA App: Creating Visit Request</span>
   </div>
 
   <script>
@@ -6638,6 +7118,1198 @@
     document.addEventListener('DOMContentLoaded', () => {
       showScreen('vip-splash');
     });
+
+    // ============================================
+    // AUTOMATED DEMO ANIMATION SYSTEM
+    // ============================================
+
+    const DEMO_SEQUENCE = [
+      // DAY BEFORE: PA creates visit request - DETAILED INTERACTIONS
+      { 
+        screen: 'pa-home', 
+        duration: 4500, 
+        description: 'PA App: Dashboard', 
+        overlay: '👔 PA App: Home Dashboard',
+        interactions: [
+          { delay: 500, action: 'scroll', scrollTo: 120, duration: 800, description: 'Scroll to view stats' },
+          { delay: 1800, action: 'touch', touch: { x: 187, y: 350 }, element: '.card', haptic: true, description: 'View today\'s visit' },
+          { delay: 2800, action: 'scroll', scrollTo: 0, duration: 600, description: 'Scroll back to top' },
+          { delay: 3800, action: 'button', selector: '.btn-secondary', description: 'Tap Create New Visit' }
+        ]
+      },
+      { 
+        screen: 'pa-visit-step1', 
+        duration: 8500, 
+        description: 'PA: Entering visit details', 
+        overlay: '👔 PA: Enter Visit Details',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 280 }, element: 'input', haptic: true, description: 'Focus VIP name field' },
+          { delay: 1400, action: 'validate', selector: 'input', isValid: true, description: 'Validate VIP name' },
+          { delay: 2200, action: 'touch', touch: { x: 187, y: 350 }, element: 'select', haptic: true, description: 'Open purpose dropdown' },
+          { delay: 2800, action: 'dropdown', selector: 'select', optionIndex: 0, showMenu: true, options: ['Budget Session', 'Committee Meeting', 'Question Hour', 'Bill Discussion'], description: 'Select Budget Session' },
+          { delay: 4200, action: 'touch', touch: { x: 187, y: 420 }, element: 'textarea', haptic: true, description: 'Focus description' },
+          { delay: 5000, action: 'scroll', scrollTo: 150, duration: 600, description: 'Scroll to location' },
+          { delay: 6000, action: 'touch', touch: { x: 187, y: 500 }, element: 'select', haptic: true, description: 'Select location' },
+          { delay: 6800, action: 'progress', selector: '.progress-bar-fill', percent: 16.6, description: 'Update progress' },
+          { delay: 7500, action: 'button', selector: '.btn-primary', description: 'Tap Continue' },
+          { delay: 7800, action: 'loading', duration: 500, description: 'Loading next step' }
+        ]
+      },
+      { 
+        screen: 'pa-visit-step2', 
+        duration: 7500, 
+        description: 'PA: Selecting date & time', 
+        overlay: '👔 PA: Select Date & Time',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 250 }, element: '.card', haptic: true, description: 'View calendar' },
+          { delay: 1400, action: 'touch', touch: { x: 200, y: 310 }, element: 'span', description: 'Hover date 15th' },
+          { delay: 2000, action: 'touch', touch: { x: 230, y: 320 }, element: 'span', haptic: true, description: 'Select date 16th' },
+          { delay: 2600, action: 'cardSelect', selector: '.card', description: 'Confirm date selection' },
+          { delay: 3600, action: 'touch', touch: { x: 120, y: 450 }, element: 'input', haptic: true, description: 'Set start time' },
+          { delay: 4400, action: 'validate', selector: 'input', isValid: true, description: 'Validate start time' },
+          { delay: 5200, action: 'touch', touch: { x: 254, y: 450 }, element: 'input', haptic: true, description: 'Set end time' },
+          { delay: 6000, action: 'validate', selector: 'input', isValid: true, description: 'Validate end time' },
+          { delay: 6500, action: 'progress', selector: '.progress-bar-fill', percent: 33, description: 'Update progress' },
+          { delay: 7000, action: 'button', selector: '.btn-primary', description: 'Tap Continue' }
+        ]
+      },
+      { 
+        screen: 'pa-visit-step3', 
+        duration: 6500, 
+        description: 'PA: Choosing vehicle', 
+        overlay: '👔 PA: Select Vehicle',
+        interactions: [
+          { delay: 600, action: 'scroll', scrollTo: 100, duration: 600, description: 'View vehicle list' },
+          { delay: 1600, action: 'skeleton', selector: '.card', duration: 800, description: 'Loading vehicle data' },
+          { delay: 2600, action: 'touch', touch: { x: 187, y: 280 }, element: '.card', haptic: true, description: 'View DL 01 AB 1234' },
+          { delay: 3400, action: 'cardSelect', selector: '.card', description: 'Select vehicle' },
+          { delay: 4200, action: 'toast', message: 'Vehicle Selected', type: 'success', duration: 1500, description: 'Show confirmation' },
+          { delay: 4800, action: 'scroll', scrollTo: 0, duration: 400, description: 'Scroll back' },
+          { delay: 5500, action: 'progress', selector: '.progress-bar-fill', percent: 50, description: 'Update progress' },
+          { delay: 6000, action: 'button', selector: '.btn-primary', description: 'Tap Continue' }
+        ]
+      },
+      { 
+        screen: 'pa-visit-step5', 
+        duration: 6500, 
+        description: 'PA: Reserving parking', 
+        overlay: '👔 PA: Reserve Parking Bay',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 300 }, element: '.card', haptic: true, description: 'View parking map' },
+          { delay: 1400, action: 'scroll', scrollTo: 150, duration: 600, description: 'Scroll parking bays' },
+          { delay: 2400, action: 'touch', touch: { x: 150, y: 380 }, element: '.card', description: 'View Bay A-10' },
+          { delay: 3200, action: 'touch', touch: { x: 187, y: 400 }, element: '.card', haptic: true, description: 'View Bay A-12' },
+          { delay: 4000, action: 'cardSelect', selector: '.card', description: 'Select Bay A-12' },
+          { delay: 4600, action: 'toast', message: 'Parking Reserved', type: 'success', duration: 1500, description: 'Show confirmation' },
+          { delay: 5200, action: 'progress', selector: '.progress-bar-fill', percent: 83, description: 'Update progress' },
+          { delay: 5800, action: 'button', selector: '.btn-primary', description: 'Tap Continue' }
+        ]
+      },
+      { 
+        screen: 'pa-confirmation', 
+        duration: 5500, 
+        description: 'PA: Request submitted', 
+        overlay: '✅ Request Submitted Successfully',
+        interactions: [
+          { delay: 400, action: 'loading', duration: 800, description: 'Submitting request' },
+          { delay: 1400, action: 'toast', message: 'Request Submitted!', type: 'success', duration: 2000, description: 'Show success' },
+          { delay: 1800, action: 'scroll', scrollTo: 100, duration: 600, description: 'Review confirmation' },
+          { delay: 2800, action: 'touch', touch: { x: 187, y: 400 }, element: '.card', haptic: true, description: 'View request details' },
+          { delay: 3800, action: 'scroll', scrollTo: 200, duration: 600, description: 'Scroll to bottom' },
+          { delay: 4800, action: 'button', selector: '.btn-primary', description: 'Tap Done' }
+        ]
+      },
+      
+      // Control Room approves - ADVANCED INTERACTIONS
+      { 
+        screen: 'cr-approvals', 
+        duration: 5500, 
+        description: 'Control Room: Pending approvals', 
+        overlay: '🖥️ Control Room: Review Request',
+        interactions: [
+          { delay: 600, action: 'scroll', scrollTo: 100, duration: 700, description: 'View pending list' },
+          { delay: 1800, action: 'touch', touch: { x: 187, y: 320 }, element: '.list-item', haptic: true, description: 'View first request' },
+          { delay: 2800, action: 'scroll', scrollTo: 50, duration: 500, description: 'Scroll to target request' },
+          { delay: 3600, action: 'touch', touch: { x: 187, y: 350 }, element: '.list-item', haptic: true, description: 'Select Rajesh Kumar request' },
+          { delay: 4600, action: 'loading', duration: 600, description: 'Loading details' }
+        ]
+      },
+      { 
+        screen: 'cr-approval-detail', 
+        duration: 7500, 
+        description: 'Control Room: Reviewing details', 
+        overlay: '🖥️ Control Room: Approve Request',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 250 }, element: '.card', haptic: true, description: 'View VIP details' },
+          { delay: 1600, action: 'scroll', scrollTo: 150, duration: 800, description: 'Scroll to vehicle info' },
+          { delay: 2800, action: 'touch', touch: { x: 187, y: 400 }, element: '.card', haptic: true, description: 'Check vehicle details' },
+          { delay: 3800, action: 'scroll', scrollTo: 280, duration: 800, description: 'Scroll to parking' },
+          { delay: 5000, action: 'touch', touch: { x: 187, y: 520 }, element: '.card', haptic: true, description: 'Verify parking bay' },
+          { delay: 6000, action: 'scroll', scrollTo: 400, duration: 700, description: 'Scroll to approve button' },
+          { delay: 7000, action: 'button', selector: '.btn-success', description: 'Tap Approve' }
+        ]
+      },
+      { 
+        screen: 'cr-dashboard', 
+        duration: 4500, 
+        description: 'Control Room: Approved', 
+        overlay: '✅ Request Approved',
+        interactions: [
+          { delay: 400, action: 'toast', message: 'Request Approved Successfully!', type: 'success', duration: 2000, description: 'Show success' },
+          { delay: 1200, action: 'touch', touch: { x: 187, y: 220 }, element: '.card', haptic: true, description: 'View approval confirmation' },
+          { delay: 2400, action: 'scroll', scrollTo: 120, duration: 600, description: 'View dashboard stats' },
+          { delay: 3600, action: 'scroll', scrollTo: 0, duration: 500, description: 'Scroll back to top' }
+        ]
+      },
+      
+      // VIP receives pass - ADVANCED INTERACTIONS
+      { 
+        screen: 'vip-home', 
+        duration: 4500, 
+        description: 'VIP App: Pass received', 
+        overlay: '📱 VIP: Digital Pass Ready',
+        interactions: [
+          { delay: 400, action: 'toast', message: 'Your pass is ready!', type: 'info', duration: 2000, description: 'Show notification' },
+          { delay: 1200, action: 'scroll', scrollTo: 100, duration: 600, description: 'View today\'s visit' },
+          { delay: 2200, action: 'touch', touch: { x: 187, y: 350 }, element: '.card', haptic: true, description: 'View visit card' },
+          { delay: 3200, action: 'button', selector: '.btn-primary', description: 'Tap View Pass' }
+        ]
+      },
+      { 
+        screen: 'vip-pass', 
+        duration: 5500, 
+        description: 'VIP App: Viewing digital pass', 
+        overlay: '📱 VIP: Digital Pass & QR Code',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 280 }, element: '.avatar', haptic: true, description: 'View profile photo' },
+          { delay: 1600, action: 'touch', touch: { x: 187, y: 380 }, element: '.qr-code', haptic: true, description: 'View QR code' },
+          { delay: 2800, action: 'scroll', scrollTo: 150, duration: 700, description: 'Scroll to pass details' },
+          { delay: 4000, action: 'scroll', scrollTo: 280, duration: 700, description: 'View all details' },
+          { delay: 5000, action: 'scroll', scrollTo: 0, duration: 500, description: 'Scroll back to QR' }
+        ]
+      },
+      
+      // DAY OF VISIT: Gate 1 - Vehicle Entry - ADVANCED INTERACTIONS
+      { 
+        screen: 'sec-gate-dashboard', 
+        duration: 4500, 
+        description: 'Security: Gate 1 ready', 
+        overlay: '🛡️ Security: Gate 1 - Vehicle Entry',
+        interactions: [
+          { delay: 600, action: 'scroll', scrollTo: 100, duration: 600, description: 'View gate status' },
+          { delay: 1600, action: 'touch', touch: { x: 187, y: 350 }, element: '.card', haptic: true, description: 'View today\'s schedule' },
+          { delay: 2600, action: 'scroll', scrollTo: 0, duration: 500, description: 'Scroll back' },
+          { delay: 3600, action: 'button', selector: '.btn-primary', description: 'Tap Scan QR' }
+        ]
+      },
+      { 
+        screen: 'sec-qr-scanner', 
+        duration: 3500, 
+        description: 'Security: Scanning QR code', 
+        overlay: '🛡️ Security: Scan QR Code',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 400 }, element: '.qr-code', haptic: true, description: 'Focus QR scanner' },
+          { delay: 1600, action: 'skeleton', selector: '.qr-code', duration: 1000, description: 'Scanning...' },
+          { delay: 2800, action: 'toast', message: 'QR Code Verified', type: 'success', duration: 1200, description: 'Show success' }
+        ]
+      },
+      { 
+        screen: 'sec-vehicle-verify', 
+        duration: 5500, 
+        description: 'Security: Verifying vehicle', 
+        overlay: '🛡️ Security: Vehicle Verification',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 280 }, element: '.card', haptic: true, description: 'View vehicle details' },
+          { delay: 1600, action: 'scroll', scrollTo: 150, duration: 700, description: 'Scroll to verification' },
+          { delay: 2800, action: 'skeleton', selector: '.card', duration: 1000, description: 'Verifying with RTO...' },
+          { delay: 4000, action: 'validate', selector: 'input', isValid: true, description: 'Vehicle verified' },
+          { delay: 4800, action: 'button', selector: '.btn-primary', description: 'Tap Continue' }
+        ]
+      },
+      { 
+        screen: 'sec-face-match', 
+        duration: 4500, 
+        description: 'Security: Face matching', 
+        overlay: '🛡️ Security: DigiYatra Face Match',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 400 }, element: '.avatar', haptic: true, description: 'Initiate face scan' },
+          { delay: 1600, action: 'skeleton', selector: '.avatar', duration: 1200, description: 'Scanning face...' },
+          { delay: 3000, action: 'toast', message: 'Face Match: 98.5%', type: 'success', duration: 1500, description: 'Show match result' }
+        ]
+      },
+      { 
+        screen: 'sec-success', 
+        duration: 4000, 
+        description: 'Security: Verification success', 
+        overlay: '✅ Verified - Gate Opening',
+        interactions: [
+          { delay: 600, action: 'toast', message: 'All Checks Passed!', type: 'success', duration: 2000, description: 'Show success' },
+          { delay: 1400, action: 'scroll', scrollTo: 120, duration: 600, description: 'View verification summary' },
+          { delay: 2600, action: 'scroll', scrollTo: 250, duration: 600, description: 'Scroll to button' },
+          { delay: 3600, action: 'button', selector: '.btn-success', description: 'Tap Continue' }
+        ]
+      },
+      
+      // Parking - ADVANCED INTERACTION
+      { 
+        screen: 'sec-assign-parking', 
+        duration: 4500, 
+        description: 'Security: Guiding to bay', 
+        overlay: '🅿️ Guiding to Bay B-07',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 350 }, element: '.card', haptic: true, description: 'View parking map' },
+          { delay: 1600, action: 'scroll', scrollTo: 100, duration: 600, description: 'View bay location' },
+          { delay: 2800, action: 'toast', message: 'Proceed to Bay B-07', type: 'info', duration: 1500, description: 'Show directions' },
+          { delay: 3800, action: 'scroll', scrollTo: 0, duration: 400, description: 'Scroll back' }
+        ]
+      },
+      
+      // Security Screening - ADVANCED INTERACTIONS
+      { 
+        screen: 'sec-screening', 
+        duration: 6000, 
+        description: 'Security: Airport-level screening', 
+        overlay: '🛡️ Security: X-Ray & Metal Detector',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 320 }, element: '.list-item', haptic: true, description: 'X-Ray scan' },
+          { delay: 1600, action: 'validate', selector: '.list-item', isValid: true, description: 'X-Ray passed' },
+          { delay: 2400, action: 'scroll', scrollTo: 120, duration: 600, description: 'View metal detector' },
+          { delay: 3400, action: 'touch', touch: { x: 187, y: 450 }, element: '.list-item', haptic: true, description: 'Metal detector scan' },
+          { delay: 4400, action: 'validate', selector: '.list-item', isValid: true, description: 'Metal detector passed' },
+          { delay: 5200, action: 'scroll', scrollTo: 200, duration: 500, description: 'Scroll to button' }
+        ]
+      },
+      { 
+        screen: 'sec-screening-result', 
+        duration: 4000, 
+        description: 'Security: All checks passed', 
+        overlay: '✅ All Security Checks Passed',
+        interactions: [
+          { delay: 400, action: 'toast', message: 'All Checks Passed!', type: 'success', duration: 2000, description: 'Show success' },
+          { delay: 1400, action: 'scroll', scrollTo: 100, duration: 600, description: 'View results' },
+          { delay: 2600, action: 'scroll', scrollTo: 200, duration: 600, description: 'Scroll to button' },
+          { delay: 3500, action: 'button', selector: '.btn-success', description: 'Tap Proceed' }
+        ]
+      },
+      
+      
+      // AI Surveillance & Building Entry - ADVANCED INTERACTIONS
+      { 
+        screen: 'cr-surveillance', 
+        duration: 5500, 
+        description: 'Control Room: AI tracking', 
+        overlay: '🎥 AI Surveillance: Real-time Tracking',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 280 }, element: '.card', haptic: true, description: 'View camera feed' },
+          { delay: 1600, action: 'skeleton', selector: '.card', duration: 1000, description: 'Loading AI analysis...' },
+          { delay: 2800, action: 'scroll', scrollTo: 150, duration: 700, description: 'Scroll to tracking data' },
+          { delay: 3800, action: 'toast', message: 'VIP Tracked Successfully', type: 'success', duration: 1500, description: 'Show tracking confirmation' },
+          { delay: 4800, action: 'scroll', scrollTo: 0, duration: 500, description: 'Scroll back to top' }
+        ]
+      },
+      { 
+        screen: 'sec-building', 
+        duration: 5500, 
+        description: 'Security: Building entry', 
+        overlay: '🏛️ Security: Building Entry',
+        interactions: [
+          { delay: 600, action: 'touch', touch: { x: 187, y: 320 }, element: '.card', haptic: true, description: 'View entry details' },
+          { delay: 1600, action: 'scroll', scrollTo: 120, duration: 600, description: 'Scroll to verification' },
+          { delay: 2600, action: 'skeleton', selector: '.card', duration: 1000, description: 'Verifying credentials...' },
+          { delay: 3800, action: 'validate', selector: 'input', isValid: true, description: 'Entry authorized' },
+          { delay: 4600, action: 'button', selector: '.btn-success', description: 'Tap Grant Entry' }
+        ]
+      },
+      { 
+        screen: 'sec-success', 
+        duration: 4500, 
+        description: 'Security: Entry complete', 
+        overlay: '✅ Entry Complete - Welcome!',
+        interactions: [
+          { delay: 400, action: 'toast', message: 'Welcome to Parliament!', type: 'success', duration: 2000, description: 'Show welcome message' },
+          { delay: 1400, action: 'scroll', scrollTo: 100, duration: 600, description: 'View entry summary' },
+          { delay: 2600, action: 'scroll', scrollTo: 200, duration: 600, description: 'Scroll to details' },
+          { delay: 3800, action: 'button', selector: '.btn-primary', description: 'Tap Done' }
+        ]
+      },
+      
+      // Final status - ADVANCED INTERACTIONS
+      { 
+        screen: 'vip-home', 
+        duration: 4500, 
+        description: 'VIP App: Inside Parliament', 
+        overlay: '🏛️ VIP: Successfully Inside Parliament',
+        interactions: [
+          { delay: 400, action: 'toast', message: 'You are now inside Parliament', type: 'info', duration: 2000, description: 'Show location update' },
+          { delay: 1400, action: 'scroll', scrollTo: 100, duration: 600, description: 'View current status' },
+          { delay: 2600, action: 'touch', touch: { x: 187, y: 350 }, element: '.bottom-nav-item', haptic: true, description: 'Tap home navigation' }
+        ]
+      },
+      { 
+        screen: 'cr-audit', 
+        duration: 6000, 
+        description: 'Control Room: Complete audit trail', 
+        overlay: '📋 Complete Audit Trail Logged',
+        interactions: [
+          { delay: 600, action: 'scroll', scrollTo: 100, duration: 700, description: 'View audit log entries' },
+          { delay: 1800, action: 'touch', touch: { x: 187, y: 320 }, element: '.list-item', haptic: true, description: 'View first log entry' },
+          { delay: 2800, action: 'scroll', scrollTo: 200, duration: 700, description: 'Scroll through logs' },
+          { delay: 3800, action: 'scroll', scrollTo: 320, duration: 700, description: 'Continue scrolling' },
+          { delay: 5000, action: 'scroll', scrollTo: 450, duration: 700, description: 'View complete trail' }
+        ]
+      }
+    ];
+
+    let demoState = {
+      isPlaying: false,
+      isPaused: false,
+      currentStep: 0,
+      startTime: null,
+      pausedTime: 0,
+      timeoutId: null
+    };
+
+    // Calculate total demo duration
+    const TOTAL_DEMO_DURATION = DEMO_SEQUENCE.reduce((sum, step) => sum + step.duration, 0);
+
+    // Show animation panel
+    function showAnimationPanel() {
+      document.getElementById('animationPanel').style.display = 'block';
+      document.getElementById('sidebar').style.display = 'none';
+      document.getElementById('showSidebarBtn').style.display = 'none';
+    }
+
+    // Hide animation panel
+    function hideAnimationPanel() {
+      document.getElementById('animationPanel').style.display = 'none';
+      document.getElementById('sidebar').style.display = 'block';
+    }
+
+    // Start demo
+    function startDemo() {
+      demoState.isPlaying = true;
+      demoState.isPaused = false;
+      demoState.currentStep = 0;
+      demoState.startTime = Date.now();
+      demoState.pausedTime = 0;
+
+      // Update UI
+      document.getElementById('startDemoBtn').style.display = 'none';
+      document.getElementById('pauseDemoBtn').style.display = 'block';
+      document.getElementById('stopDemoBtn').style.display = 'block';
+      document.getElementById('demoProgress').style.display = 'block';
+      document.getElementById('demoOverlay').style.display = 'block';
+
+      // Hide sidebar for cleaner view
+      document.getElementById('sidebar').classList.add('hidden');
+      document.getElementById('mainContent').classList.add('expanded');
+      document.getElementById('showSidebarBtn').classList.remove('visible');
+
+      // Start playing
+      playNextStep();
+    }
+
+    // Pause demo
+    function pauseDemo() {
+      if (demoState.isPaused) {
+        // Resume
+        demoState.isPaused = false;
+        demoState.pausedTime += Date.now() - demoState.pauseStartTime;
+        document.getElementById('pauseDemoBtn').innerHTML = '⏸️ Pause';
+        playNextStep();
+      } else {
+        // Pause
+        demoState.isPaused = true;
+        demoState.pauseStartTime = Date.now();
+        document.getElementById('pauseDemoBtn').innerHTML = '▶️ Resume';
+        if (demoState.timeoutId) {
+          clearTimeout(demoState.timeoutId);
+        }
+      }
+    }
+
+    // Stop demo
+    function stopDemo() {
+      demoState.isPlaying = false;
+      demoState.isPaused = false;
+      
+      if (demoState.timeoutId) {
+        clearTimeout(demoState.timeoutId);
+      }
+
+      // Reset UI
+      document.getElementById('startDemoBtn').style.display = 'block';
+      document.getElementById('pauseDemoBtn').style.display = 'none';
+      document.getElementById('stopDemoBtn').style.display = 'none';
+      document.getElementById('demoProgress').style.display = 'none';
+      document.getElementById('demoOverlay').style.display = 'none';
+      document.getElementById('pauseDemoBtn').innerHTML = '⏸️ Pause';
+
+      // Show sidebar again
+      document.getElementById('sidebar').classList.remove('hidden');
+      document.getElementById('mainContent').classList.remove('expanded');
+      document.getElementById('showSidebarBtn').classList.add('visible');
+
+      // Go back to first screen
+      showScreen('vip-splash');
+    }
+
+    // Enhanced touch animation function with multiple effects
+    function showTouchAnimation(x, y) {
+      const screenContent = document.querySelector('.screen-content');
+      if (!screenContent) return;
+      
+      // Create touch point marker (center dot)
+      const touchPoint = document.createElement('div');
+      touchPoint.className = 'touch-point';
+      touchPoint.style.left = x + 'px';
+      touchPoint.style.top = y + 'px';
+      screenContent.appendChild(touchPoint);
+      
+      // Create touch indicator (outer ring)
+      const touchIndicator = document.createElement('div');
+      touchIndicator.className = 'touch-indicator';
+      touchIndicator.style.left = x + 'px';
+      touchIndicator.style.top = y + 'px';
+      screenContent.appendChild(touchIndicator);
+      
+      // Create ripple effect
+      const ripple = document.createElement('div');
+      ripple.className = 'touch-ripple';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      screenContent.appendChild(ripple);
+      
+      // Create second delayed ripple for more impact
+      setTimeout(() => {
+        const ripple2 = document.createElement('div');
+        ripple2.className = 'touch-ripple';
+        ripple2.style.left = x + 'px';
+        ripple2.style.top = y + 'px';
+        screenContent.appendChild(ripple2);
+        
+        setTimeout(() => ripple2.remove(), 1000);
+      }, 200);
+      
+      // Remove after animation completes
+      setTimeout(() => {
+        touchPoint.remove();
+        touchIndicator.remove();
+        ripple.remove();
+      }, 1000);
+    }
+
+    // REAL scroll animation - actually scrolls the screen content
+    function realScrollScreen(targetY = 200, duration = 800) {
+      const screenContent = document.querySelector('.screen-content');
+      if (!screenContent) return;
+      
+      const startY = screenContent.scrollTop;
+      const distance = targetY - startY;
+      const startTime = performance.now();
+      
+      // NO visual scroll indicator - just real scrolling
+      
+      function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth scroll
+        const easeInOutCubic = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+        
+        screenContent.scrollTop = startY + (distance * easeInOutCubic);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+      
+      requestAnimationFrame(animateScroll);
+    }
+
+    // REAL dropdown open/select animation
+    function realDropdownSelect(selector, optionIndex = 1) {
+      const dropdown = document.querySelector(selector);
+      if (!dropdown) return;
+      
+      // Highlight dropdown
+      dropdown.classList.add('element-highlight');
+      
+      // Simulate opening dropdown (visual effect)
+      dropdown.style.transform = 'scale(1.02)';
+      dropdown.style.boxShadow = '0 0 0 3px rgba(255, 153, 51, 0.3)';
+      
+      setTimeout(() => {
+        // Select the option
+        if (dropdown.tagName === 'SELECT') {
+          dropdown.selectedIndex = optionIndex;
+          
+          // Trigger change event
+          const event = new Event('change', { bubbles: true });
+          dropdown.dispatchEvent(event);
+        }
+        
+        // Reset styles
+        dropdown.style.transform = '';
+        dropdown.style.boxShadow = '';
+        dropdown.classList.remove('element-highlight');
+      }, 600);
+    }
+
+    // REAL input typing animation
+    function realTypeInInput(selector, text, speed = 100) {
+      const input = document.querySelector(selector);
+      if (!input) return;
+      
+      // Focus input
+      input.focus();
+      input.classList.add('element-highlight');
+      
+      let currentIndex = 0;
+      const typeInterval = setInterval(() => {
+        if (currentIndex < text.length) {
+          input.value += text[currentIndex];
+          
+          // Trigger input event
+          const event = new Event('input', { bubbles: true });
+          input.dispatchEvent(event);
+          
+          currentIndex++;
+        } else {
+          clearInterval(typeInterval);
+          input.blur();
+          input.classList.remove('element-highlight');
+        }
+      }, speed);
+    }
+
+    // REAL button press with visual feedback
+    function realButtonPress(selector) {
+      const button = document.querySelector(selector);
+      if (!button) return;
+      
+      // Add press animation
+      button.style.transform = 'scale(0.95)';
+      button.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
+      button.classList.add('element-highlight');
+      
+      setTimeout(() => {
+        button.style.transform = 'scale(1.02)';
+        
+        setTimeout(() => {
+          button.style.transform = '';
+          button.style.boxShadow = '';
+          button.classList.remove('element-highlight');
+          
+          // Trigger click event
+          button.click();
+        }, 150);
+      }, 150);
+    }
+
+    // REAL card selection animation
+    function realCardSelect(selector) {
+      const card = document.querySelector(selector);
+      if (!card) return;
+      
+      // Add selection visual
+      card.style.border = '3px solid var(--secondary)';
+      card.style.transform = 'scale(1.02)';
+      card.style.boxShadow = '0 8px 20px rgba(255, 153, 51, 0.3)';
+      card.classList.add('element-highlight');
+      
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+      }, 300);
+    }
+
+    // REAL checkbox/radio toggle
+    function realToggleCheckbox(selector) {
+      const checkbox = document.querySelector(selector);
+      if (!checkbox) return;
+      
+      checkbox.checked = !checkbox.checked;
+      
+      // Visual feedback
+      const parent = checkbox.parentElement;
+      if (parent) {
+        parent.classList.add('element-highlight');
+        setTimeout(() => {
+          parent.classList.remove('element-highlight');
+        }, 600);
+      }
+      
+      // Trigger change event
+      const event = new Event('change', { bubbles: true });
+      checkbox.dispatchEvent(event);
+    }
+
+    // ADVANCED: Realistic typing with cursor
+    function advancedTypeInInput(selector, text, speed = 80) {
+      const input = document.querySelector(selector);
+      if (!input) return;
+      
+      // Focus input
+      input.focus();
+      input.classList.add('element-highlight');
+      
+      // Add cursor
+      const cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+      cursor.style.position = 'absolute';
+      cursor.style.marginLeft = '2px';
+      
+      let currentIndex = 0;
+      const typeInterval = setInterval(() => {
+        if (currentIndex < text.length) {
+          input.value += text[currentIndex];
+          
+          // Trigger input event
+          const event = new Event('input', { bubbles: true });
+          input.dispatchEvent(event);
+          
+          currentIndex++;
+        } else {
+          clearInterval(typeInterval);
+          input.blur();
+          input.classList.remove('element-highlight');
+        }
+      }, speed);
+    }
+
+    // ADVANCED: Show dropdown menu with options
+    function advancedDropdownWithMenu(selector, options, selectedIndex = 0) {
+      const dropdown = document.querySelector(selector);
+      if (!dropdown) return;
+      
+      const rect = dropdown.getBoundingClientRect();
+      const screenContent = document.querySelector('.screen-content');
+      if (!screenContent) return;
+      
+      // Create dropdown menu
+      const menu = document.createElement('div');
+      menu.className = 'dropdown-expanded';
+      menu.style.position = 'absolute';
+      menu.style.left = rect.left + 'px';
+      menu.style.top = (rect.bottom + 5) + 'px';
+      menu.style.width = rect.width + 'px';
+      
+      // Add options
+      options.forEach((option, index) => {
+        const optionEl = document.createElement('div');
+        optionEl.className = 'dropdown-option';
+        optionEl.textContent = option;
+        
+        if (index === selectedIndex) {
+          setTimeout(() => {
+            optionEl.classList.add('selected');
+          }, 300 + (index * 50));
+        }
+        
+        menu.appendChild(optionEl);
+      });
+      
+      document.body.appendChild(menu);
+      
+      // Highlight dropdown
+      dropdown.classList.add('element-highlight');
+      
+      // Select option after delay
+      setTimeout(() => {
+        if (dropdown.tagName === 'SELECT') {
+          dropdown.selectedIndex = selectedIndex;
+          const event = new Event('change', { bubbles: true });
+          dropdown.dispatchEvent(event);
+        }
+        
+        // Remove menu
+        menu.style.opacity = '0';
+        setTimeout(() => {
+          menu.remove();
+          dropdown.classList.remove('element-highlight');
+        }, 300);
+      }, 1000);
+    }
+
+    // ADVANCED: Show loading spinner
+    function showLoadingSpinner(duration = 1000) {
+      const screenContent = document.querySelector('.screen-content');
+      if (!screenContent) return;
+      
+      const spinner = document.createElement('div');
+      spinner.className = 'loading-spinner';
+      screenContent.appendChild(spinner);
+      
+      setTimeout(() => {
+        spinner.style.opacity = '0';
+        setTimeout(() => spinner.remove(), 300);
+      }, duration);
+    }
+
+    // ADVANCED: Show toast notification
+    function showToast(message, type = 'success', duration = 2000) {
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      
+      const icon = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+      toast.innerHTML = `<span style="font-size: 20px;">${icon}</span><span>${message}</span>`;
+      
+      document.body.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(-20px)';
+        setTimeout(() => toast.remove(), 300);
+      }, duration);
+    }
+
+    // ADVANCED: Haptic feedback simulation
+    function hapticFeedback(element) {
+      if (typeof element === 'string') {
+        element = document.querySelector(element);
+      }
+      if (!element) return;
+      
+      element.classList.add('haptic-pulse');
+      setTimeout(() => {
+        element.classList.remove('haptic-pulse');
+      }, 300);
+    }
+
+    // ADVANCED: Form validation animation
+    function validateInput(selector, isValid = true) {
+      const input = document.querySelector(selector);
+      if (!input) return;
+      
+      input.classList.remove('input-valid', 'input-invalid');
+      
+      if (isValid) {
+        input.classList.add('input-valid');
+        
+        // Show checkmark
+        const checkmark = document.createElement('div');
+        checkmark.className = 'checkmark';
+        checkmark.innerHTML = '✓';
+        checkmark.style.position = 'absolute';
+        checkmark.style.right = '10px';
+        checkmark.style.top = '50%';
+        checkmark.style.transform = 'translateY(-50%)';
+        
+        const parent = input.parentElement;
+        if (parent && parent.style.position !== 'relative') {
+          parent.style.position = 'relative';
+        }
+        parent?.appendChild(checkmark);
+        
+        setTimeout(() => checkmark.remove(), 2000);
+      } else {
+        input.classList.add('input-invalid');
+        hapticFeedback(input);
+      }
+    }
+
+    // ADVANCED: Swipe gesture animation
+    function showSwipeGesture(startX, startY, direction = 'left') {
+      const screenContent = document.querySelector('.screen-content');
+      if (!screenContent) return;
+      
+      const swipe = document.createElement('div');
+      swipe.className = 'swipe-indicator';
+      swipe.style.left = startX + 'px';
+      swipe.style.top = startY + 'px';
+      
+      if (direction === 'right') {
+        swipe.style.animation = 'swipeMove 0.8s ease-in-out';
+        swipe.style.animationDirection = 'reverse';
+      }
+      
+      screenContent.appendChild(swipe);
+      
+      setTimeout(() => swipe.remove(), 800);
+    }
+
+    // ADVANCED: Progress bar animation
+    function animateProgress(selector, targetPercent, duration = 500) {
+      const progressBar = document.querySelector(selector);
+      if (!progressBar) return;
+      
+      const fill = progressBar.querySelector('.step-progress-fill') || progressBar;
+      fill.style.transition = `width ${duration}ms ease-out`;
+      fill.style.width = targetPercent + '%';
+    }
+
+    // ADVANCED: Skeleton loading animation
+    function showSkeletonLoading(selector, duration = 1500) {
+      const element = document.querySelector(selector);
+      if (!element) return;
+      
+      const originalContent = element.innerHTML;
+      element.classList.add('skeleton');
+      element.innerHTML = '&nbsp;';
+      
+      setTimeout(() => {
+        element.classList.remove('skeleton');
+        element.innerHTML = originalContent;
+      }, duration);
+    }
+
+    // Enhanced scroll animation function
+    function showScrollAnimation() {
+      const screenContent = document.querySelector('.screen-content');
+      if (!screenContent) return;
+      
+      const scrollIndicator = document.createElement('div');
+      scrollIndicator.className = 'scroll-indicator';
+      screenContent.appendChild(scrollIndicator);
+      
+      // Add a second scroll indicator for emphasis
+      setTimeout(() => {
+        const scrollIndicator2 = document.createElement('div');
+        scrollIndicator2.className = 'scroll-indicator';
+        screenContent.appendChild(scrollIndicator2);
+        
+        setTimeout(() => scrollIndicator2.remove(), 1500);
+      }, 400);
+      
+      // Remove after animation completes
+      setTimeout(() => {
+        scrollIndicator.remove();
+      }, 1500);
+    }
+
+    // Enhanced button press animation function
+    function animateButtonPress(selector) {
+      const button = document.querySelector(selector);
+      if (!button) return;
+      
+      button.classList.add('btn-press');
+      
+      // Add highlight effect
+      button.classList.add('element-highlight');
+      
+      setTimeout(() => {
+        button.classList.remove('btn-press');
+        button.classList.remove('element-highlight');
+      }, 400);
+    }
+
+    // New function: Highlight element (for selections, inputs, etc.)
+    function highlightElement(selector) {
+      const element = document.querySelector(selector);
+      if (!element) return;
+      
+      element.classList.add('element-highlight');
+      
+      setTimeout(() => {
+        element.classList.remove('element-highlight');
+      }, 1000);
+    }
+
+    // Play next step in sequence with enhanced transitions and element highlighting
+    function playNextStep() {
+      if (!demoState.isPlaying || demoState.isPaused) return;
+
+      if (demoState.currentStep >= DEMO_SEQUENCE.length) {
+        // Demo complete
+        stopDemo();
+        
+        // Show completion message with better styling
+        const completionMsg = document.createElement('div');
+        completionMsg.style.cssText = `
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+          color: white;
+          padding: 40px 50px;
+          border-radius: 20px;
+          font-size: 18px;
+          font-weight: 600;
+          z-index: 300;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+          text-align: center;
+          border: 3px solid var(--secondary);
+        `;
+        completionMsg.innerHTML = `
+          <div style="font-size: 48px; margin-bottom: 16px;">✅</div>
+          <div style="font-size: 20px; margin-bottom: 8px;">Demo Complete!</div>
+          <div style="font-size: 14px; opacity: 0.9; line-height: 1.5;">You've experienced the complete<br>Parliament Security System flow</div>
+        `;
+        document.body.appendChild(completionMsg);
+        
+        setTimeout(() => {
+          completionMsg.style.transition = 'opacity 0.5s';
+          completionMsg.style.opacity = '0';
+          setTimeout(() => completionMsg.remove(), 500);
+        }, 3000);
+        
+        return;
+      }
+
+      const step = DEMO_SEQUENCE[demoState.currentStep];
+      const prevStep = demoState.currentStep > 0 ? DEMO_SEQUENCE[demoState.currentStep - 1] : null;
+      
+      // Add transition effect if changing screens
+      if (prevStep && prevStep.screen !== step.screen) {
+        const screenContent = document.querySelector('.screen-content');
+        if (screenContent) {
+          // Fade out current screen
+          screenContent.style.transition = 'opacity 0.2s ease-out';
+          screenContent.style.opacity = '0';
+          
+          setTimeout(() => {
+            // Show the new screen
+            showScreen(step.screen);
+            
+            // Fade in new screen
+            setTimeout(() => {
+              screenContent.style.opacity = '1';
+            }, 50);
+          }, 200);
+        } else {
+          showScreen(step.screen);
+        }
+      } else {
+        showScreen(step.screen);
+      }
+      
+      // Update progress
+      updateDemoProgress();
+      
+      // Update overlay with animation
+      const overlayText = document.getElementById('demoOverlayText');
+      overlayText.style.transition = 'opacity 0.2s';
+      overlayText.style.opacity = '0';
+      
+      setTimeout(() => {
+        overlayText.textContent = step.overlay;
+        overlayText.style.opacity = '1';
+      }, 200);
+      
+      // Trigger detailed interactions if specified (ADVANCED action-based system)
+      if (step.interactions && step.interactions.length > 0) {
+        step.interactions.forEach((interaction, index) => {
+          setTimeout(() => {
+            // Handle different action types
+            switch(interaction.action) {
+              case 'scroll':
+                // Real scroll animation - NO touch indicator
+                realScrollScreen(interaction.scrollTo || 200, interaction.duration || 800);
+                break;
+                
+              case 'dropdown':
+                // Real dropdown selection - show touch only if specified
+                if (interaction.showTouch && interaction.touch) {
+                  showTouchAnimation(interaction.touch.x, interaction.touch.y);
+                }
+                if (interaction.showMenu && interaction.options) {
+                  advancedDropdownWithMenu(interaction.selector, interaction.options, interaction.optionIndex || 0);
+                } else {
+                  realDropdownSelect(interaction.selector, interaction.optionIndex || 0);
+                }
+                break;
+                
+              case 'button':
+                // Real button press with haptic - NO touch indicator (cleaner look)
+                if (interaction.selector) {
+                  const btn = document.querySelector(interaction.selector);
+                  if (btn && interaction.haptic) {
+                    hapticFeedback(btn);
+                  }
+                  realButtonPress(interaction.selector);
+                }
+                break;
+                
+              case 'cardSelect':
+                // Real card selection with haptic - NO touch indicator (cleaner look)
+                if (interaction.selector) {
+                  const card = document.querySelector(interaction.selector);
+                  if (card && interaction.haptic) {
+                    hapticFeedback(card);
+                  }
+                  realCardSelect(interaction.selector);
+                }
+                break;
+                
+              case 'type':
+                // Advanced typing animation - show touch only if specified
+                if (interaction.showTouch && interaction.touch) {
+                  showTouchAnimation(interaction.touch.x, interaction.touch.y);
+                }
+                if (interaction.selector && interaction.text) {
+                  advancedTypeInInput(interaction.selector, interaction.text, interaction.speed || 80);
+                }
+                break;
+                
+              case 'validate':
+                // Form validation feedback - NO touch indicator
+                if (interaction.selector) {
+                  validateInput(interaction.selector, interaction.isValid !== false);
+                }
+                break;
+                
+              case 'loading':
+                // Show loading spinner - NO touch indicator
+                showLoadingSpinner(interaction.duration || 1000);
+                break;
+                
+              case 'toast':
+                // Show toast notification - NO touch indicator
+                showToast(interaction.message || 'Success!', interaction.type || 'success', interaction.duration || 2000);
+                break;
+                
+              case 'swipe':
+                // Swipe gesture - show swipe indicator instead of touch
+                if (interaction.touch) {
+                  showSwipeGesture(interaction.touch.x, interaction.touch.y, interaction.direction || 'left');
+                }
+                break;
+                
+              case 'progress':
+                // Animate progress bar - NO touch indicator
+                if (interaction.selector && interaction.percent !== undefined) {
+                  animateProgress(interaction.selector, interaction.percent, interaction.duration || 500);
+                }
+                break;
+                
+              case 'skeleton':
+                // Skeleton loading - NO touch indicator
+                if (interaction.selector) {
+                  showSkeletonLoading(interaction.selector, interaction.duration || 1500);
+                }
+                break;
+                
+              case 'touch':
+                // Standard touch animation - ONLY show if touch coordinates provided
+                if (interaction.touch) {
+                  showTouchAnimation(interaction.touch.x, interaction.touch.y);
+                  
+                  // Highlight element
+                  if (interaction.element) {
+                    setTimeout(() => {
+                      const element = document.querySelector(interaction.element);
+                      if (element) {
+                        element.classList.add('element-highlight');
+                        if (interaction.haptic) {
+                          hapticFeedback(element);
+                        }
+                        setTimeout(() => {
+                          element.classList.remove('element-highlight');
+                        }, 1000);
+                      }
+                    }, 300);
+                  }
+                }
+                break;
+                
+              default:
+                // Unknown action - do nothing
+                break;
+            }
+          }, interaction.delay);
+        });
+      }
+      // Fallback to old single-touch system for backward compatibility
+      else if (step.touch) {
+        setTimeout(() => {
+          showTouchAnimation(step.touch.x, step.touch.y);
+          
+          // Highlight the actual UI element if specified
+          if (step.element) {
+            setTimeout(() => {
+              const element = document.querySelector(step.element);
+              if (element) {
+                element.classList.add('element-highlight');
+                setTimeout(() => {
+                  element.classList.remove('element-highlight');
+                }, 1000);
+              }
+            }, 300);
+          }
+        }, 600); // Delay touch animation after screen transition
+      }
+      
+      // Trigger scroll animation if specified (old system)
+      if (step.scroll && !step.interactions) {
+        setTimeout(() => {
+          showScrollAnimation();
+        }, 1000); // Delay scroll animation
+      }
+      
+      // Schedule next step
+      demoState.timeoutId = setTimeout(() => {
+        demoState.currentStep++;
+        playNextStep();
+      }, step.duration);
+    }
+
+    // Update demo progress UI
+    function updateDemoProgress() {
+      const step = DEMO_SEQUENCE[demoState.currentStep];
+      const totalSteps = DEMO_SEQUENCE.length;
+      const currentStepNum = demoState.currentStep + 1;
+      
+      // Calculate elapsed time
+      const elapsed = Date.now() - demoState.startTime - demoState.pausedTime;
+      const elapsedSeconds = Math.floor(elapsed / 1000);
+      const totalSeconds = Math.floor(TOTAL_DEMO_DURATION / 1000);
+      
+      // Calculate progress percentage
+      const completedDuration = DEMO_SEQUENCE.slice(0, demoState.currentStep).reduce((sum, s) => sum + s.duration, 0);
+      const progressPercent = (completedDuration / TOTAL_DEMO_DURATION) * 100;
+      
+      // Update UI
+      document.getElementById('demoStepText').textContent = `Step ${currentStepNum} of ${totalSteps}`;
+      document.getElementById('demoTimeText').textContent = `${formatTime(elapsedSeconds)} / ${formatTime(totalSeconds)}`;
+      document.getElementById('demoProgressBar').style.width = `${progressPercent}%`;
+      document.getElementById('demoCurrentStep').textContent = step.description;
+    }
+
+    // Format time as MM:SS
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Event listeners for demo controls
+    document.getElementById('startDemoBtn').addEventListener('click', startDemo);
+    document.getElementById('pauseDemoBtn').addEventListener('click', pauseDemo);
+    document.getElementById('stopDemoBtn').addEventListener('click', stopDemo);
+
+    // Add keyboard shortcut for demo (SPACE key)
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      
+      if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        if (!demoState.isPlaying) {
+          showAnimationPanel();
+        } else if (demoState.isPaused) {
+          pauseDemo(); // Resume
+        } else {
+          pauseDemo(); // Pause
+        }
+      }
+      
+      if (e.key === 'Escape' && demoState.isPlaying) {
+        stopDemo();
+      }
+    });
+
+    // Show animation panel on load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        showAnimationPanel();
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
+
   </script>
 </body>
 </html>
